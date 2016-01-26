@@ -54,6 +54,9 @@
       </div>
 
     </div>
+    <div class="container text-center">
+      <div class="fb-share-button" data-href="http://navyaganduri.github.io/pomodoro-timer-bootstrap/" data-layout="link"></div>
+    </div>
 
   </div>
 
@@ -78,6 +81,17 @@
   <!-- Include all compiled plugins (below), or include individual files as needed -->
   <script src="js/bootstrap/bootstrap.js"></script>
   <script src="js/pomodoro-timer.js"></script>
+
+  <div class="script-unit">
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.5";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+  </div>
 
   <div class="script-unit">
     <script>
