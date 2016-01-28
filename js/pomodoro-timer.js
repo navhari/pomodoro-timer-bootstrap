@@ -64,7 +64,6 @@ function onStartTimer(){
 
 function onStopTimer(){
   stopTimer();
-
 };
 
 function onResetTimer(){
@@ -72,11 +71,8 @@ function onResetTimer(){
   resetTimer();
 }
 
-function startAlarm(){
-  if(remainingTime<1000)
-  {
-    audio.play();
-  }
+function playAlarm(){
+  audio.play();
 }
 
 function startTimer() {
@@ -87,20 +83,18 @@ function startTimer() {
 
 function stopTimer() {
   clearInterval(countdownHandle);
-  startAlarm();
-
 }
 
 function resetTimer(){
 
   remainingTime = (gHours*60*60*1000)+
-  (gMinutes*60*1000)+
-  (gSeconds*1000);
+                  (gMinutes*60*1000)+
+                  (gSeconds*1000);
+
   renderTimer();
 }
 
 function renderTimer(){
-
 
   var deltaTime=remainingTime;
 
@@ -161,18 +155,17 @@ function animateTime(remainingHours, remainingMinutes, remainingSeconds) {
 }
 
 
-function formatTime(intergerValue){
-
+function formatTime(intergerValue) {
   return intergerValue > 9 ? intergerValue.toString():'0'+intergerValue.toString();
-
 }
 
 function decrementTimer(){
 
-  remainingTime-=(1*1000);
-
   if(remainingTime<1000){
-    onStopTimer();
+    stopTimer();
+    playAlarm();
+  } else {
+    remainingTime-=(1*1000);
   }
 
   renderTimer();
