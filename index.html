@@ -8,8 +8,11 @@
   <title>Pomodoro Timer</title>
 
   <!-- Bootstrap -->
-  <link href="css/bootstrap/bootstrap.css" rel="stylesheet">
   <link href="css/pomodoro-timer.css" rel="stylesheet">
+  <link href="libs/bootstrap/css/bootstrap.css" rel="stylesheet">
+  <link href="libs/fontawesome/css/font-awesome.css" rel="stylesheet">
+
+
 
   <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -54,18 +57,21 @@
       </div>
 
     </div>
-    <div class="container text-center">
-      <div class="fb-share-button" data-href="http://navyaganduri.github.io/pomodoro-timer-bootstrap/" data-layout="link"></div>
-    </div>
 
   </div>
 
   <div class="footer">
     <div class="container text-center">
+      <a href="https://www.facebook.com/sharer/sharer.php?u=http://navyaganduri.github.io/pomodoro-timer-bootstrap/index.html" title="Share on Facebook" target="_blank" class="btn btn-facebook"><i class="fa fa-facebook"></i> Facebook</a>
+      <a href="http://twitter.com/home?status=Get productive with the - Pomodoro Timer (http://navyaganduri.github.io/pomodoro-timer-bootstrap/index.html)" title="Share on Twitter" target="_blank" class="btn btn-twitter"><i class="fa fa-twitter"></i> Twitter</a>
+      <a href="https://plus.google.com/share?url=http://navyaganduri.github.io/pomodoro-timer-bootstrap/index.html" title="Share on Google+" target="_blank" class="btn btn-googleplus"><i class="fa fa-google-plus"></i> Google+</a>
+      <a href="http://www.linkedin.com/shareArticle?mini=true&url=http://navyaganduri.github.io/pomodoro-timer-bootstrap/index.html&title=Pomodoro Timer&summary=Get productive with the - Pomodoro Timer" title="Share on LinkedIn" target="_blank" class="btn btn-linkedin"><i class="fa fa-linkedin"></i> LinkedIn</a>
+      <div class="submit">
       <a class="btn btn-info btn-sm" href="https://github.com/navyaganduri/pomodoro-timer-bootstrap/issues/new"
         role="button" target="_blank">Submit Feedback</a>
       <a class="btn btn-default btn-sm" href="http://navyaganduri.github.io/pomodoro-timer-bootstrap/about.html"
         role="button" target="_blank">About</a>
+</div>
     </div>
   </div>
 
@@ -77,23 +83,12 @@
   </span>
 
   <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-  <script src="js/jquery/jquery-1.11.3.js"></script>
+  <script src="libs/jquery/jquery-1.11.3.js"></script>
   <!-- Include all compiled plugins (below), or include individual files as needed -->
-  <script src="js/bootstrap/bootstrap.js"></script>
+  <script src="libs/bootstrap/js/bootstrap.js"></script>
   <script src="js/pomodoro-timer.js"></script>
 
-  <div class="script-unit">
-    <div id="fb-root"></div>
-    <script>(function(d, s, id) {
-      var js, fjs = d.getElementsByTagName(s)[0];
-      if (d.getElementById(id)) return;
-      js = d.createElement(s); js.id = id;
-      js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.5";
-      fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));</script>
-  </div>
-
-  <div class="script-unit">
+    <div class="script-unit">
     <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
