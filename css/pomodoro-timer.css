@@ -1,6 +1,18 @@
+.spaced-box-lg {
+  margin: 48px;
+}
+
+.spaced-box-md {
+  margin: 32px;
+}
+
+.spaced-box-sm {
+  margin: 16px;
+}
+
 .timer-time {
-    line-height:1em;
-    font-size: 6em;
+  line-height:1em;
+  font-size: 8em;
 }
 
 .timer-container {
@@ -20,8 +32,9 @@
 }
 
 .footer {
+  position: absolute;
+  bottom: 0;
   width: 100%;
-  height: 60px;
 }
 
 .adsense-unit-responsive {
@@ -31,57 +44,55 @@
   height: 100px;
   text-align: center;
 }
+
 .btn-twitter {
-    background: #00acee;
-    border-radius: 0;
-    color: #fff
+  background: #00acee;
+  border-radius: 0;
+  color: #fff
 }
 .btn-twitter:link, .btn-twitter:visited {
-    color: #fff
+  color: #fff
 }
 .btn-twitter:active, .btn-twitter:hover {
-    background: #0087bd;
-    color: #fff
+  background: #0087bd;
+  color: #fff
 }
 
 .btn-facebook {
-    background: #3b5998;
-    border-radius: 0;
-    color: #fff
+  background: #3b5998;
+  border-radius: 0;
+  color: #fff
 }
 .btn-facebook:link, .btn-facebook:visited {
-    color: #fff
+  color: #fff
 }
 .btn-facebook:active, .btn-facebook:hover {
-    background: #30477a;
-    color: #fff
-  }
-  .btn-googleplus {
-      background: #e93f2e;
-      border-radius: 0;
-      color: #fff
-  }
-  .btn-googleplus:link, .btn-googleplus:visited {
-      color: #fff
-  }
-  .btn-googleplus:active, .btn-googleplus:hover {
-      background: #ba3225;
-      color: #fff
-    }
+  background: #30477a;
+  color: #fff
+}
+
+.btn-googleplus {
+  background: #e93f2e;
+  border-radius: 0;
+  color: #fff
+}
+.btn-googleplus:link, .btn-googleplus:visited {
+  color: #fff
+}
+.btn-googleplus:active, .btn-googleplus:hover {
+  background: #ba3225;
+  color: #fff
+}
 
 .btn-linkedin {
-    background: #0e76a8;
-    border-radius: 0;
-    color: #fff
+  background: #0e76a8;
+  border-radius: 0;
+  color: #fff
 }
 .btn-linkedin:link, .btn-linkedin:visited {
-    color: #fff
+  color: #fff
 }
 .btn-linkedin:active, .btn-linkedin:hover {
-    background: #0b6087;
-    color: #fff
-}
-
-.submit{
-  padding-top: 100px;
+  background: #0b6087;
+  color: #fff
 }

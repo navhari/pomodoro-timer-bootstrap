@@ -8,10 +8,11 @@
   <title>Pomodoro Timer</title>
 
   <!-- Bootstrap -->
-  <link href="css/pomodoro-timer.css" rel="stylesheet">
-  <link href="libs/bootstrap/css/bootstrap.css" rel="stylesheet">
-  <link href="libs/fontawesome/css/font-awesome.css" rel="stylesheet">
 
+  <link href="css/pomodoro-timer.css" rel="stylesheet">
+
+  <link href="libs/fontawesome/css/font-awesome.css" rel="stylesheet">
+  <link href="libs/bootstrap/css/bootstrap.css" rel="stylesheet">
 
 
   <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -22,56 +23,65 @@
   <![endif]-->
 </head>
 <body>
+  <div class="page-header">
+    <h1 class="text-center">Pomodoro Timer</h1>
+  </div>
   <div class="container">
-    <div class="page-header">
-      <h1 class="text-center">Pomodoro Timer</h1>
-      <h2 class="text-center">
-        <span>
-          <button id="pomodoroButton" class="btn btn-default" type="submit" onclick="onPomodoroTimer()" >Pomodoro</button>
-          <button id="shortButton" class="btn btn-default" type="submit" onclick="onShortTimer()">Short Break</button>
-          <button id="longButton" class="btn btn-default" type="submit" onclick="onLongTimer()">Long Break</button>
-        </span>
-      </h2>
-    </div>
-    <div class="panel panel-default">
-      <div class="panel-body text-center">
-        <div class="timer-time timer-container">
-          <div class="timer-time-set timer-box" id="currentTime">
-            <span id="hoursValue">00</span><span>:</span><span id="minutesValue">00</span><span>:</span><span id="secondsValue">00</span>
+    <div class="row">
+      <div class="col-md-offset-3 col-md-6">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <div class="text-center">
+              <button id="pomodoroButton" class="btn btn-default btn-lg" type="submit" onclick="onPomodoroTimer()" >Pomodoro</button>
+              <button id="shortButton" class="btn btn-default btn-lg" type="submit" onclick="onShortTimer()">Short Break</button>
+              <button id="longButton" class="btn btn-default btn-lg" type="submit" onclick="onLongTimer()">Long Break</button>
+            </div>
           </div>
-          <div class="timer-time-set timer-box" id="nextTime">
-            <span id="hoursNext">00</span><span>:</span><span id="minutesNext">00</span><span>:</span><span id="secondsNext">00</span>
+          <div class="panel-body">
+            <div class="timer-time timer-container text-center">
+              <div class="timer-time-set timer-box" id="currentTime">
+                <span id="hoursValue">00</span><span>:</span><span id="minutesValue">00</span><span>:</span><span id="secondsValue">00</span>
+              </div>
+              <div class="timer-time-set timer-box" id="nextTime">
+                <span id="hoursNext">00</span><span>:</span><span id="minutesNext">00</span><span>:</span><span id="secondsNext">00</span>
+              </div>
+            </div>
           </div>
-        </div>
-        <div>
-          <button id="restartButton" class="btn btn-warning btn-lg" type="submit" onclick="onResetTimer()">
-            <span class="glyphicon glyphicon-step-backward" aria-hidden="true"></span> Reset
-          </button>
-          <button id="startButton" class="btn btn-primary btn-lg" type="submit" onclick="onStartTimer()">
-            <span class="glyphicon glyphicon-play" aria-hidden="true"></span> Start
-          </button>
-          <button id="stopButton" class="btn btn-danger btn-lg" type="submit" onclick="onStopTimer()">
-            <span class="glyphicon glyphicon-stop" aria-hidden="true"></span> Stop
-          </button>
+          <div class="panel-footer">
+            <div class="text-center">
+              <button id="restartButton" class="btn btn-warning btn-lg" type="submit" onclick="onResetTimer()">
+                <span class="glyphicon glyphicon-step-backward" aria-hidden="true"></span> Reset
+              </button>
+              <button id="startButton" class="btn btn-primary btn-lg" type="submit" onclick="onStartTimer()">
+                <span class="glyphicon glyphicon-play" aria-hidden="true"></span> Start
+              </button>
+              <button id="stopButton" class="btn btn-danger btn-lg" type="submit" onclick="onStopTimer()">
+                <span class="glyphicon glyphicon-stop" aria-hidden="true"></span> Stop
+              </button>
+            </div>
+          </div>
         </div>
       </div>
-
     </div>
-
   </div>
 
   <div class="footer">
-    <div class="container text-center">
-      <a href="https://www.facebook.com/sharer/sharer.php?u=http://navyaganduri.github.io/pomodoro-timer-bootstrap/index.html" title="Share on Facebook" target="_blank" class="btn btn-facebook"><i class="fa fa-facebook"></i> Facebook</a>
-      <a href="http://twitter.com/home?status=Get productive with the - Pomodoro Timer (http://navyaganduri.github.io/pomodoro-timer-bootstrap/index.html)" title="Share on Twitter" target="_blank" class="btn btn-twitter"><i class="fa fa-twitter"></i> Twitter</a>
-      <a href="https://plus.google.com/share?url=http://navyaganduri.github.io/pomodoro-timer-bootstrap/index.html" title="Share on Google+" target="_blank" class="btn btn-googleplus"><i class="fa fa-google-plus"></i> Google+</a>
-      <a href="http://www.linkedin.com/shareArticle?mini=true&url=http://navyaganduri.github.io/pomodoro-timer-bootstrap/index.html&title=Pomodoro Timer&summary=Get productive with the - Pomodoro Timer" title="Share on LinkedIn" target="_blank" class="btn btn-linkedin"><i class="fa fa-linkedin"></i> LinkedIn</a>
-      <div class="submit">
-      <a class="btn btn-info btn-sm" href="https://github.com/navyaganduri/pomodoro-timer-bootstrap/issues/new"
-        role="button" target="_blank">Submit Feedback</a>
-      <a class="btn btn-default btn-sm" href="http://navyaganduri.github.io/pomodoro-timer-bootstrap/about.html"
-        role="button" target="_blank">About</a>
-</div>
+
+    <div class="container text-center spaced-box-md">
+      <a href="https://www.facebook.com/sharer/sharer.php?u=http://navyaganduri.github.io/pomodoro-timer-bootstrap/index.html"
+        title="Share on Facebook" target="_blank" class="btn btn-facebook"><i class="fa fa-facebook"></i> Facebook</a>
+      <a href="http://twitter.com/home?status=Get productive with the - Pomodoro Timer (http://navyaganduri.github.io/pomodoro-timer-bootstrap/index.html)"
+        title="Share on Twitter" target="_blank" class="btn btn-twitter"><i class="fa fa-twitter"></i> Twitter</a>
+      <a href="https://plus.google.com/share?url=http://navyaganduri.github.io/pomodoro-timer-bootstrap/index.html"
+        title="Share on Google+" target="_blank" class="btn btn-googleplus"><i class="fa fa-google-plus"></i> Google+</a>
+      <a href="http://www.linkedin.com/shareArticle?mini=true&url=http://navyaganduri.github.io/pomodoro-timer-bootstrap/index.html&title=Pomodoro Timer&summary=Get productive with the - Pomodoro Timer"
+        title="Share on LinkedIn" target="_blank" class="btn btn-linkedin"><i class="fa fa-linkedin"></i> LinkedIn</a>
+    </div>
+    <div class="container text-center spaced-box-sm">
+        <a class="btn btn-info btn-sm" href="https://github.com/navyaganduri/pomodoro-timer-bootstrap/issues/new"
+          role="button" target="_blank">Submit Feedback</a>
+        <a class="btn btn-default btn-sm" href="http://navyaganduri.github.io/pomodoro-timer-bootstrap/about.html"
+          role="button" target="_blank">About</a>
     </div>
   </div>
 
