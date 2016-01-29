@@ -37,22 +37,25 @@
   </div>
   <div class="container">
     <div class="row">
-      <div class="col-md-offset-3 col-md-6">
+      <div class="col-sm-offset-2 col-sm-8">
         <div class="panel panel-default">
           <div class="panel-heading">
             <div class="text-center">
-              <button id="pomodoroButton" class="btn btn-default btn-lg" type="submit" onclick="onPomodoroTimer()" >Pomodoro</button>
-              <button id="shortButton" class="btn btn-default btn-lg" type="submit" onclick="onShortTimer()">Short Break</button>
-              <button id="longButton" class="btn btn-default btn-lg" type="submit" onclick="onLongTimer()">Long Break</button>
+              <button id="pomodoroButton" class="btn btn-default btn-lg" type="submit"
+                  onclick="onPomodoroTimer()">Pomodoro</button>
+              <button id="shortButton" class="btn btn-default btn-lg" type="submit"
+                  onclick="onShortTimer()">Short Break</button>
+              <button id="longButton" class="btn btn-default btn-lg" type="submit"
+                  onclick="onLongTimer()">Long Break</button>
             </div>
           </div>
           <div class="panel-body">
             <div class="timer-time timer-container text-center">
               <div class="timer-time-set timer-box" id="currentTime">
-                <span id="hoursValue">00</span><span>:</span><span id="minutesValue">00</span><span>:</span><span id="secondsValue">00</span>
+                <span id="hoursValue" class="hidden-xs">00</span><span class="hidden-xs">:</span><span id="minutesValue">00</span><span>:</span><span id="secondsValue">00</span>
               </div>
               <div class="timer-time-set timer-box" id="nextTime">
-                <span id="hoursNext">00</span><span>:</span><span id="minutesNext">00</span><span>:</span><span id="secondsNext">00</span>
+                <span id="hoursNext" class="hidden-xs">00</span><span class="hidden-xs">:</span><span id="minutesNext">00</span><span>:</span><span id="secondsNext">00</span>
               </div>
             </div>
           </div>
@@ -77,13 +80,17 @@
   <div class="footer">
     <div class="container text-center spaced-box-sm">
       <a href="https://www.facebook.com/sharer/sharer.php?u=http://navyaganduri.github.io/pomodoro-timer-bootstrap/index.html"
-        title="Share on Facebook" target="_blank" class="btn btn-facebook"><i class="fa fa-facebook"></i> Facebook</a>
+        title="Share on Facebook" target="_blank" class="btn btn-facebook btn-social"><i class="fa fa-facebook"></i>
+        <span class="hidden-xs"> Facebook</span></a>
       <a href="http://twitter.com/home?status=Get productive with the - Pomodoro Timer (http://navyaganduri.github.io/pomodoro-timer-bootstrap/index.html)"
-        title="Share on Twitter" target="_blank" class="btn btn-twitter"><i class="fa fa-twitter"></i> Twitter</a>
+        title="Share on Twitter" target="_blank" class="btn btn-twitter btn-social"><i class="fa fa-twitter"></i>
+        <span class="hidden-xs"> Twitter</span></a>
       <a href="https://plus.google.com/share?url=http://navyaganduri.github.io/pomodoro-timer-bootstrap/index.html"
-        title="Share on Google+" target="_blank" class="btn btn-googleplus"><i class="fa fa-google-plus"></i> Google+</a>
+        title="Share on Google+" target="_blank" class="btn btn-googleplus btn-social"><i class="fa fa-google-plus"></i>
+        <span class="hidden-xs"> Google+</span></a>
       <a href="http://www.linkedin.com/shareArticle?mini=true&url=http://navyaganduri.github.io/pomodoro-timer-bootstrap/index.html&title=Pomodoro Timer&summary=Get productive with the - Pomodoro Timer"
-        title="Share on LinkedIn" target="_blank" class="btn btn-linkedin"><i class="fa fa-linkedin"></i> LinkedIn</a>
+        title="Share on LinkedIn" target="_blank" class="btn btn-linkedin btn-social"><i class="fa fa-linkedin"></i>
+        <span class="hidden-xs"> LinkedIn</span></a>
     </div>
     <hr/>
     <div class="container text-center spaced-box-sm">
