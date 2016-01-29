@@ -112,45 +112,61 @@ function renderTimer(){
 
 function animateTime(remainingHours, remainingMinutes, remainingSeconds) {
 
+  var $hoursValue = $('#hoursValue');
+  var $minutesValue = $('#minutesValue');
+  var $secondsValue =   $('#secondsValue');
+
+  var $hoursNext = $('#hoursNext');
+  var $minutesNext = $('#minutesNext');
+  var $secondsNext =   $('#secondsNext');
+
+  $hoursValue.stop();
+  $minutesValue.stop();
+  $secondsValue.stop();
+
+  $hoursNext.stop();
+  $minutesNext.stop();
+  $secondsNext.stop();
+
   // position
-  $('#hoursValue').css('top', '0em');
-  $('#minutesValue').css('top', '0em');
-  $('#secondsValue').css('top', '0em');
+  $hoursValue.css('top', '0em');
+  $minutesValue.css('top', '0em');
+  $secondsValue.css('top', '0em');
 
-  $('#hoursNext').css('top', '0em');
-  $('#minutesNext').css('top', '0em');
-  $('#secondsNext').css('top', '0em');
+  $hoursNext.css('top', '0em');
+  $minutesNext.css('top', '0em');
+  $secondsNext.css('top', '0em');
 
-  var oldHoursString = $('#hoursNext').text();
-  var oldMinutesString = $('#minutesNext').text();
-  var oldSecondsString = $('#secondsNext').text();
+  var oldHoursString = $hoursNext.text();
+  var oldMinutesString = $minutesNext.text();
+  var oldSecondsString = $secondsNext.text();
 
   var hoursString = formatTime(remainingHours);
   var minutesString = formatTime(remainingMinutes);
   var secondsString = formatTime(remainingSeconds);
 
-  $('#hoursValue').text(oldHoursString);
-  $('#minutesValue').text(oldMinutesString);
-  $('#secondsValue').text(oldSecondsString);
+  $hoursValue.text(oldHoursString);
+  $minutesValue.text(oldMinutesString);
+  $secondsValue.text(oldSecondsString);
 
-  $('#hoursNext').text(hoursString);
-  $('#minutesNext').text(minutesString);
-  $('#secondsNext').text(secondsString);
+  $hoursNext.text(hoursString);
+  $minutesNext.text(minutesString);
+  $secondsNext.text(secondsString);
 
   // set and animate
   if(oldHoursString !== hoursString) {
-    $('#hoursValue').animate({top: '-=1em'});
-    $('#hoursNext').animate({top: '-=1em'});
+    $hoursValue.animate({top: '-=1em'});
+    $hoursNext.animate({top: '-=1em'});
   }
 
   if(oldMinutesString !== minutesString) {
-    $('#minutesValue').animate({top: '-=1em'});
-    $('#minutesNext').animate({top: '-=1em'});
+    $minutesValue.animate({top: '-=1em'});
+    $minutesNext.animate({top: '-=1em'});
   }
 
   if(oldSecondsString !== secondsString) {
-    $('#secondsValue').animate({top: '-=1em'});
-    $('#secondsNext').animate({top: '-=1em'});
+    $secondsValue.animate({top: '-=1em'});
+    $secondsNext.animate({top: '-=1em'});
   }
 }
 
