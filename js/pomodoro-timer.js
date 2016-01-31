@@ -17,13 +17,17 @@ function onPomodoroTimer(){
   stopTimer();
 
   gHours = 0;
-  gMinutes = 55;
+  gMinutes = 50;
   gSeconds = 0;
 
   resetTimer();
 
   $('#shortButton').removeClass('btn-success');
   $('#longButton').removeClass('btn-success');
+  $('#breakButton').removeClass('btn-success');
+  $('#shortButtonDropdownItem').removeClass('active');
+  $('#longButtonDropdownItem').removeClass('active');
+
   $('#pomodoroButton').addClass('btn-success');
 }
 
@@ -39,7 +43,11 @@ function onShortTimer(){
 
   $('#pomodoroButton').removeClass('btn-success');
   $('#longButton').removeClass('btn-success');
+  $('#longButtonDropdownItem').removeClass('active');
+
   $('#shortButton').addClass('btn-success');
+  $('#shortButtonDropdownItem').addClass('active');
+  $('#breakButton').addClass('btn-success');
 }
 
 function onLongTimer(){
@@ -54,7 +62,12 @@ function onLongTimer(){
 
   $('#pomodoroButton').removeClass('btn-success');
   $('#shortButton').removeClass('btn-success');
+  $('#shortButtonDropdownItem').removeClass('active');
+
   $('#longButton').addClass('btn-success');
+  $('#longButtonDropdownItem').addClass('active');
+  $('#breakButton').addClass('btn-success');
+
 }
 
 function onStartTimer(){

@@ -41,12 +41,29 @@
         <div class="panel panel-default">
           <div class="panel-heading">
             <div class="text-center">
-              <button id="pomodoroButton" class="btn btn-default btn-lg" type="submit"
+              <button id="pomodoroButton" class="btn btn-default btn-lg" type="button"
                   onclick="onPomodoroTimer()">Pomodoro</button>
-              <button id="shortButton" class="btn btn-default btn-lg" type="submit"
-                  onclick="onShortTimer()">Short Break</button>
-              <button id="longButton" class="btn btn-default btn-lg" type="submit"
-                  onclick="onLongTimer()">Long Break</button>
+              <span class="hidden-xs">
+                <button id="shortButton" class="btn btn-default btn-lg" type="button"
+                    onclick="onShortTimer()">Short Break</button>
+                <button id="longButton" class="btn btn-default btn-lg" type="button"
+                    onclick="onLongTimer()">Long Break</button>
+              </span>
+              <div class="btn-group visible-xs-inline-block">
+                <button id="breakButton" class="btn btn-default btn-lg dropdown-toggle"
+                  type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      <span class="default-break-label">Break</span> <span class="caret"></span></button>
+                      <ul class="dropdown-menu">
+                        <li id="shortButtonDropdownItem">
+                          <a id="shortButtonResponsive" href="#"
+                            onclick="onShortTimer()">Short Break</a>
+                        </li>
+                        <li id="longButtonDropdownItem">
+                          <a id="longButtonResponsive" href="#"
+                            onclick="onLongTimer()">Long Break</a>
+                        </li>
+                      </ul>
+              </div>
             </div>
           </div>
           <div class="panel-body">
