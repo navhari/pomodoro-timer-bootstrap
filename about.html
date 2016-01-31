@@ -19,6 +19,27 @@
   <body>
 
     <div class="container">
+      <nav class="navbar navbar-default">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                data-target="#pt-navbar-collapse" aria-expanded="false">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="./">Pomodoro Timer</a>
+          </div>
+          <div id="pt-navbar-collapse" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav navbar-right">
+              <li class="active"><a href="#">About</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </div>
+    <div class="container">
     <div class="jumbotron">
         <h1>Pomodoro Timer</h1>
             <p>The Pomodoro Timer is a simple and effective time management method. The technique uses a timer to break down work into intervals of 50 minutes in length, separated by short and long breaks.</p>
@@ -38,6 +59,11 @@
           </ol>
       </p>
       </div>
+
+      <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+      <script src="libs/jquery/jquery-1.11.3.js"></script>
+      <!-- Include all compiled plugins (below), or include individual files as needed -->
+      <script src="libs/bootstrap/js/bootstrap.js"></script>
 
     <script>
        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

@@ -32,27 +32,48 @@
   <![endif]-->
 </head>
 <body>
-  <div class="page-header">
-    <h1 class="text-center">Pomodoro Timer</h1>
+  <div class="container">
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+              data-target="#pt-navbar-collapse" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Pomodoro Timer</a>
+        </div>
+        <div id="pt-navbar-collapse" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="about.html">About</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
   </div>
+  <!-- <div class="page-header">
+    <h1 class="text-center">Pomodoro Timer</h1>
+  </div> -->
   <div class="container">
     <div class="row">
       <div class="col-sm-offset-2 col-sm-8 col-md-offset-3 col-md-6">
         <div class="panel panel-default">
           <div class="panel-heading">
             <div class="text-center">
-              <button id="pomodoroButton" class="btn btn-default btn-lg" type="button"
-                  onclick="onPomodoroTimer()">Pomodoro</button>
+              <a id="pomodoroButton" class="btn btn-default btn-lg" role="button"
+                  onclick="onPomodoroTimer()">Pomodoro</a>
               <span class="hidden-xs">
-                <button id="shortButton" class="btn btn-default btn-lg" type="button"
-                    onclick="onShortTimer()">Short Break</button>
-                <button id="longButton" class="btn btn-default btn-lg" type="button"
-                    onclick="onLongTimer()">Long Break</button>
+                <a id="shortButton" class="btn btn-default btn-lg" role="button"
+                    onclick="onShortTimer()">Short Break</a>
+                <a id="longButton" class="btn btn-default btn-lg" role="button"
+                    onclick="onLongTimer()">Long Break</a>
               </span>
               <div class="btn-group visible-xs-inline-block">
-                <button id="breakButton" class="btn btn-default btn-lg dropdown-toggle"
-                  type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      <span class="default-break-label">Break</span> <span class="caret"></span></button>
+                <a id="breakButton" class="btn btn-default btn-lg dropdown-toggle"
+                  role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      <span class="default-break-label">Break</span> <span class="caret"></span></a>
                       <ul class="dropdown-menu">
                         <li id="shortButtonDropdownItem">
                           <a id="shortButtonResponsive" href="#"
@@ -78,15 +99,15 @@
           </div>
           <div class="panel-footer">
             <div class="text-center">
-              <button id="restartButton" class="btn btn-warning btn-lg" type="submit" onclick="onResetTimer()">
+              <a id="restartButton" class="btn btn-warning btn-lg" role="button" onclick="onResetTimer()">
                 <span class="glyphicon glyphicon-step-backward" aria-hidden="true"></span> Reset
-              </button>
-              <button id="startButton" class="btn btn-primary btn-lg" type="submit" onclick="onStartTimer()">
+              </a>
+              <a id="startButton" class="btn btn-primary btn-lg" role="button" onclick="onStartTimer()">
                 <span class="glyphicon glyphicon-play" aria-hidden="true"></span> Start
-              </button>
-              <button id="stopButton" class="btn btn-danger btn-lg" type="submit" onclick="onStopTimer()">
+              </a>
+              <a id="stopButton" class="btn btn-danger btn-lg" role="button" onclick="onStopTimer()">
                 <span class="glyphicon glyphicon-stop" aria-hidden="true"></span> Stop
-              </button>
+              </a>
             </div>
           </div>
         </div>
@@ -111,12 +132,10 @@
     </div>
     <hr/>
     <div class="container text-center spaced-box-sm">
-        <a class="btn btn-success btn-sm" href="https://github.com/navyaganduri/pomodoro-timer-bootstrap/"
+        <a class="btn btn-default btn-sm" href="https://github.com/navyaganduri/pomodoro-timer-bootstrap/"
           title="Fork me on GitHub" role="button" target="_blank"><i class="fa fa-github"></i> Fork me on GitHub</a>
-        <a class="btn btn-info btn-sm" href="https://github.com/navyaganduri/pomodoro-timer-bootstrap/issues/new"
+        <a class="btn btn-default btn-sm" href="https://github.com/navyaganduri/pomodoro-timer-bootstrap/issues/new"
           title="Submit Feedback" role="button" target="_blank"><i class="fa fa-github"></i> Submit Feedback</a>
-        <a class="btn btn-default btn-sm" href="http://navyaganduri.github.io/pomodoro-timer-bootstrap/about.html"
-          title="About" role="button" target="_blank">About</a>
     </div>
   </div>
 

@@ -2,6 +2,9 @@ var gHours = 0;
 var gMinutes = 0;
 var gSeconds = 0;
 
+var beginTime;
+var timerDuration;
+var timeElapsed;
 var remainingTime;
 
 var countdownHandle;
@@ -22,13 +25,13 @@ function onPomodoroTimer(){
 
   resetTimer();
 
-  $('#shortButton').removeClass('btn-success');
-  $('#longButton').removeClass('btn-success');
-  $('#breakButton').removeClass('btn-success');
+  $('#shortButton').removeClass('btn-success active');
+  $('#longButton').removeClass('btn-success active');
+  $('#breakButton').removeClass('btn-success active');
   $('#shortButtonDropdownItem').removeClass('active');
   $('#longButtonDropdownItem').removeClass('active');
 
-  $('#pomodoroButton').addClass('btn-success');
+  $('#pomodoroButton').addClass('btn-success  active');
 }
 
 function onShortTimer(){
@@ -41,13 +44,13 @@ function onShortTimer(){
 
   resetTimer();
 
-  $('#pomodoroButton').removeClass('btn-success');
-  $('#longButton').removeClass('btn-success');
+  $('#pomodoroButton').removeClass('btn-success active');
+  $('#longButton').removeClass('btn-success active');
   $('#longButtonDropdownItem').removeClass('active');
 
-  $('#shortButton').addClass('btn-success');
+  $('#shortButton').addClass('btn-success active');
+  $('#breakButton').addClass('btn-success active');
   $('#shortButtonDropdownItem').addClass('active');
-  $('#breakButton').addClass('btn-success');
 }
 
 function onLongTimer(){
@@ -60,13 +63,13 @@ function onLongTimer(){
 
   resetTimer();
 
-  $('#pomodoroButton').removeClass('btn-success');
-  $('#shortButton').removeClass('btn-success');
+  $('#pomodoroButton').removeClass('btn-success active');
+  $('#shortButton').removeClass('btn-success active');
   $('#shortButtonDropdownItem').removeClass('active');
 
-  $('#longButton').addClass('btn-success');
+  $('#longButton').addClass('btn-success active');
+  $('#breakButton').addClass('btn-success active');
   $('#longButtonDropdownItem').addClass('active');
-  $('#breakButton').addClass('btn-success');
 
 }
 
@@ -89,20 +92,28 @@ function playAlarm(){
 }
 
 function startTimer() {
+
+  beginTime = Date.now();
+
   countdownHandle=setInterval(function() {
     decrementTimer();
   },1000);
 }
 
 function stopTimer() {
+
+  timerDuration = remainingTime;
+
   clearInterval(countdownHandle);
 }
 
 function resetTimer(){
 
-  remainingTime = (gHours*60*60*1000)+
+  timerDuration = (gHours*60*60*1000)+
                   (gMinutes*60*1000)+
                   (gSeconds*1000);
+
+  remainingTime = timerDuration;
 
   renderTimer();
 }
@@ -190,11 +201,14 @@ function formatTime(intergerValue) {
 
 function decrementTimer(){
 
+  timeElapsed = Date.now() - beginTime;
+  remainingTime = timerDuration - timeElapsed;
+
   if(remainingTime<1000){
+    remainingTime = 0;
+
     stopTimer();
     playAlarm();
-  } else {
-    remainingTime-=(1*1000);
   }
 
   renderTimer();
