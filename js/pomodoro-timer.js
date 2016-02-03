@@ -1,26 +1,50 @@
+/**
+ * pomodoro-timer.js
+ **/
+var isDebug = false;
+
 var gHours = 0;
 var gMinutes = 0;
 var gSeconds = 0;
 
-var beginTime;
 var timerDuration;
+var beginTime;
 var timeElapsed;
 var remainingTime;
+var isRunTimer = false;
 
-var countdownHandle;
+var loopRenderInterval = 1000;
+var nextIntervalAdjust = 20;
+var deltaRenderTime = 0;
+var currentRenderTime = 0;
+var lastRenderTime = 0;
+
+var beginRenderTime = 0;
+var expectedRenderTime = 0;
+
+var renderHandle;
 
 var audio = new Audio('./sounds/beep.mp3');
 
 $(document).ready(function() {
   onPomodoroTimer();
+
+  beginRender();
+  enableButtons();
 });
+
+function enableButtons() {
+  $('#restartButton').removeAttr('disabled');
+  $('#startButton').removeAttr('disabled');
+  $('#stopButton').removeAttr('disabled');
+}
 
 function onPomodoroTimer(){
 
   stopTimer();
 
   gHours = 0;
-  gMinutes = 50;
+  gMinutes = 25;
   gSeconds = 0;
 
   resetTimer();
@@ -74,7 +98,6 @@ function onLongTimer(){
 }
 
 function onStartTimer(){
-  stopTimer();
   startTimer();
 };
 
@@ -92,19 +115,17 @@ function playAlarm(){
 }
 
 function startTimer() {
-
-  beginTime = Date.now();
-
-  countdownHandle=setInterval(function() {
-    decrementTimer();
-  },1000);
+  if(!isRunTimer) {
+    beginTime = Date.now();
+    isRunTimer = true;
+  }
 }
 
 function stopTimer() {
-
-  timerDuration = remainingTime;
-
-  clearInterval(countdownHandle);
+  if(isRunTimer) {
+    timerDuration = remainingTime;
+    isRunTimer = false;
+  }
 }
 
 function resetTimer(){
@@ -115,10 +136,40 @@ function resetTimer(){
 
   remainingTime = timerDuration;
 
-  renderTimer();
+  displayTimer();
 }
 
-function renderTimer(){
+function formatTime(intergerValue) {
+  return intergerValue > 9 ? intergerValue.toString():'0'+intergerValue.toString();
+}
+
+function decrementTimer(){
+
+  var lastTimeElased = timeElapsed;
+  var lastRemainingTime = remainingTime;
+
+  if(remainingTime<1000){
+    remainingTime = 0;
+
+    stopTimer();
+    playAlarm();
+  } else {
+    timeElapsed = Date.now() - beginTime;
+    remainingTime = timerDuration - timeElapsed;
+  }
+
+  if(isDebug) {
+    console.log('----');
+    console.log('timeElapsed: ' + timeElapsed);
+    console.log('timeElapsed(sec): ' + (timeElapsed/1000));
+    console.log('timeDelta: ' + (timeElapsed - lastTimeElased));
+    console.log('remainingTime: '+ remainingTime);
+  }
+
+  displayTimer();
+}
+
+function displayTimer(){
 
   var deltaTime=remainingTime;
 
@@ -129,6 +180,13 @@ function renderTimer(){
   deltaTime=deltaTime%(1000*60);
 
   var secondsValue=Math.floor(deltaTime/(1000));
+
+  if(isDebug) {
+    console.log('----');
+    console.log('hoursValue: ' + hoursValue);
+    console.log('minutesValue: ' + minutesValue);
+    console.log('secondsValue: ' + secondsValue);
+  }
 
   animateTime(hoursValue, minutesValue, secondsValue);
 };
@@ -143,14 +201,6 @@ function animateTime(remainingHours, remainingMinutes, remainingSeconds) {
   var $hoursNext = $('#hoursNext');
   var $minutesNext = $('#minutesNext');
   var $secondsNext =   $('#secondsNext');
-
-  $hoursValue.stop();
-  $minutesValue.stop();
-  $secondsValue.stop();
-
-  $hoursNext.stop();
-  $minutesNext.stop();
-  $secondsNext.stop();
 
   // position
   $hoursValue.css('top', '0em');
@@ -179,37 +229,76 @@ function animateTime(remainingHours, remainingMinutes, remainingSeconds) {
 
   // set and animate
   if(oldHoursString !== hoursString) {
-    $hoursValue.animate({top: '-=1em'});
-    $hoursNext.animate({top: '-=1em'});
+    $hoursValue.animate({top: '-1em'});
+    $hoursNext.animate({top: '-1em'});
   }
 
   if(oldMinutesString !== minutesString) {
-    $minutesValue.animate({top: '-=1em'});
-    $minutesNext.animate({top: '-=1em'});
+    $minutesValue.animate({top: '-1em'});
+    $minutesNext.animate({top: '-1em'});
   }
 
   if(oldSecondsString !== secondsString) {
-    $secondsValue.animate({top: '-=1em'});
-    $secondsNext.animate({top: '-=1em'});
+    $secondsValue.animate({top: '-1em'});
+    $secondsNext.animate({top: '-1em'});
   }
 }
 
+function beginRender() {
 
-function formatTime(intergerValue) {
-  return intergerValue > 9 ? intergerValue.toString():'0'+intergerValue.toString();
+  clearRender();
+
+  expectedRenderTime = beginRenderTime = Date.now();
+  lastRenderTime = currentRenderTime = Date.now();
+
+  renderHandle = setTimeout(function() {
+    render();
+  }, loopRenderInterval);
 }
 
-function decrementTimer(){
+function clearRender() {
+  if(renderHandle) {
+    clearTimeout(renderHandle);
+  }
+}
 
-  timeElapsed = Date.now() - beginTime;
-  remainingTime = timerDuration - timeElapsed;
+function render() {
 
-  if(remainingTime<1000){
-    remainingTime = 0;
-
-    stopTimer();
-    playAlarm();
+  // do stuff here
+  if(isRunTimer) {
+    decrementTimer();
   }
 
-  renderTimer();
+  // ideal clock
+  expectedRenderTime+=loopRenderInterval;
+
+  // current clocks
+  lastRenderTime = currentRenderTime;
+  currentRenderTime = Date.now();
+
+  // delta to catch up with ideal clock
+  deltaRenderTime = (expectedRenderTime - currentRenderTime);
+
+  var nextInterval = (loopRenderInterval + deltaRenderTime);
+  var adjustedNextInterval = nextInterval - nextIntervalAdjust;
+
+  if(isDebug) {
+    console.log('----');
+    console.log('expectedRenderTime: ' + (expectedRenderTime%(60*1000))/1000);
+    console.log('currentRenderTime: ' + (currentRenderTime%(60*1000))/1000);
+    console.log('lastRenderTime: ' + (lastRenderTime%(60*1000))/1000);
+    console.log('drift: ' + ((currentRenderTime) - (expectedRenderTime)));
+    console.log('deltaRenderTime: '+ deltaRenderTime);
+    console.log('nextInterval: '+ nextInterval);
+    console.log('adjustedNextInterval: '+ adjustedNextInterval);
+  }
+
+  // schedule next render
+  if(renderHandle) {
+    clearTimeout(renderHandle);
+
+    renderHandle = setTimeout(function() {
+      render();
+    }, nextInterval);
+  }
 }

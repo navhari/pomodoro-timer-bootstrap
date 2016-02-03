@@ -100,22 +100,25 @@
           <div class="panel-body">
             <div class="timer-time timer-container text-center">
               <div class="timer-time-set timer-box" id="currentTime">
-                <span id="hoursValue" class="hidden-xs hide-time">00</span><span class="hidden-xs hide-time">:</span><span id="minutesValue">00</span><span>:</span><span id="secondsValue">00</span>
+                <span id="hoursValue" class="hidden-xs hidden">00</span><span class="hidden-xs hidden">:</span><span id="minutesValue">00</span><span>:</span><span id="secondsValue">00</span>
               </div>
               <div class="timer-time-set timer-box" id="nextTime">
-                <span id="hoursNext" class="hidden-xs hide-time">00</span><span class="hidden-xs hide-time">:</span><span id="minutesNext">00</span><span>:</span><span id="secondsNext">00</span>
+                <span id="hoursNext" class="hidden-xs hidden">00</span><span class="hidden-xs hidden">:</span><span id="minutesNext">00</span><span>:</span><span id="secondsNext">00</span>
               </div>
             </div>
           </div>
           <div class="panel-footer">
             <div class="text-center">
-              <a id="restartButton" class="btn btn-warning btn-lg" role="button" onclick="onResetTimer()">
+              <a id="restartButton" class="btn btn-warning btn-lg" role="button"
+                  onclick="onResetTimer()" disabled="disabled">
                 <span class="glyphicon glyphicon-step-backward" aria-hidden="true"></span> Reset
               </a>
-              <a id="startButton" class="btn btn-primary btn-lg" role="button" onclick="onStartTimer()">
+              <a id="startButton" class="btn btn-primary btn-lg" role="button"
+                  onclick="onStartTimer()" disabled="disabled">
                 <span class="glyphicon glyphicon-play" aria-hidden="true"></span> Start
               </a>
-              <a id="stopButton" class="btn btn-danger btn-lg" role="button" onclick="onStopTimer()">
+              <a id="stopButton" class="btn btn-danger btn-lg" role="button" 
+                  onclick="onStopTimer()" disabled="disabled">
                 <span class="glyphicon glyphicon-stop" aria-hidden="true"></span> Stop
               </a>
             </div>
@@ -128,20 +131,20 @@
   <div class="footer">
     <div class="container text-center spaced-box-sm">
       <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fnavyaganduri.github.io%2Fpomodoro-timer-bootstrap%2Findex.html"
-        title="Share on Facebook" target="_blank" class="btn btn-facebook btn-social"><i class="fa fa-facebook"></i>
-        <span class="hidden-xs"> Facebook</span></a>
+        title="Share on Facebook" target="_blank" class="btn btn-facebook btn-social"><i class="fa fa-facebook fa-lg"></i>
+        <span class="hidden-xs btn-social-text"> Facebook</span></a>
       <a href="http://twitter.com/home?status=Get%20productive%20with%20the%20-%20Pomodoro%20Timer%20Lite%20(http%3A%2F%2Fnavyaganduri.github.io%2Fpomodoro-timer-bootstrap%2Findex.html)"
-        title="Share on Twitter" target="_blank" class="btn btn-twitter btn-social"><i class="fa fa-twitter"></i>
-        <span class="hidden-xs"> Twitter</span></a>
+        title="Share on Twitter" target="_blank" class="btn btn-twitter btn-social"><i class="fa fa-twitter  fa-lg"></i>
+        <span class="hidden-xs btn-social-text"> Twitter</span></a>
       <a href="https://plus.google.com/share?url=http%3A%2F%2Fnavyaganduri.github.io%2Fpomodoro-timer-bootstrap%2Findex.html"
-        title="Share on Google+" target="_blank" class="btn btn-googleplus btn-social"><i class="fa fa-google-plus"></i>
-        <span class="hidden-xs"> Google+</span></a>
-      <a href="http://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Fnavyaganduri.github.io%2Fpomodoro-timer-bootstrap%2Findex.html&title=Pomodoro%20Timer%20Lite&summary=Get productive with the - Pomodoro Timer Lite"
-        title="Share on LinkedIn" target="_blank" class="btn btn-linkedin btn-social"><i class="fa fa-linkedin"></i>
-        <span class="hidden-xs"> LinkedIn</span></a>
-        <a href="http://www.reddit.com/submit?url=http%3A%2F%2Fnavyaganduri.github.io%2Fpomodoro-timer-bootstrap%2Findex.html"
-          title="Share on Reddit" target="_blank" class="btn btn-reddit btn-social"><i class="fa fa-reddit"></i>
-          <span class="hidden-xs"> Reddit</span></a>
+        title="Share on Google+" target="_blank" class="btn btn-googleplus btn-social"><i class="fa fa-google-plus fa-lg"></i>
+        <span class="hidden-xs btn-social-text"> Google+</span></a>
+      <a href="http://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Fnavyaganduri.github.io%2Fpomodoro-timer-bootstrap%2Findex.html&title=Get productive with the - Pomodoro Timer Lite"
+        title="Share on LinkedIn" target="_blank" class="btn btn-linkedin btn-social"><i class="fa fa-linkedin fa-lg"></i>
+        <span class="hidden-xs btn-social-text"> LinkedIn</span></a>
+      <a href="http://www.reddit.com/submit?url=http%3A%2F%2Fnavyaganduri.github.io%2Fpomodoro-timer-bootstrap%2Findex.html&title=Get productive with the - Pomodoro Timer Lite"
+        title="Share on Reddit" target="_blank" class="btn btn-reddit btn-social"><i class="fa fa-reddit fa-lg"></i>
+        <span class="hidden-xs btn-social-text"> Reddit</span></a>
     </div>
     <hr/>
     <div class="container text-center spaced-box-sm">
