@@ -83,3 +83,7 @@ body {
 .btn-linkedin:active, .btn-linkedin:hover {
   background: #0b6087;
 }
+
+.hide-time{
+  display: none !important;
+}
