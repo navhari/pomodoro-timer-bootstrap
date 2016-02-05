@@ -1,0 +1,6 @@
+# www.robotstxt.org/
+
+# Allow crawling of all content
+User-agent: *
+Disallow:
+Sitemap: http://navyaganduri.github.io/pomodoro-timer-bootstrap/sitemap.txt
