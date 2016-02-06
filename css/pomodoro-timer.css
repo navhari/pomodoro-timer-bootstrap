@@ -1,5 +1,6 @@
 body {
   overflow-y: scroll;
+  min-width: 320px;
 }
 
 .spaced-box-lg {
@@ -19,6 +20,29 @@ body {
   font-size: 7em;
 }
 
+@media screen and (max-width: 352px) {
+  .hidden-xtreme {
+    display: none !important;
+  }
+
+  .timer-time {
+    line-height:1em;
+    font-size: 4em;
+  }
+}
+
+@media screen and (min-width: 352px) {
+  .timer-time {
+    font-size: 5em;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .timer-time {
+    font-size: 7em;
+  }
+}
+
 .timer-container {
   height: 1em;
   overflow: hidden;
@@ -29,10 +53,12 @@ body {
   height: 1em;
   margin: auto;
   position: relative;
+  text-align: center;
 }
 
 .timer-box > span {
   position: relative;
+  display: inline-block;
 }
 
 .footer {

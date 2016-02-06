@@ -80,58 +80,85 @@
   </div> -->
   <div class="container">
     <div class="row">
-      <div class="col-sm-offset-2 col-sm-8 col-md-offset-3 col-md-6">
+      <div class="col-xs-12 col-sm-offset-2 col-sm-8 col-md-offset-3 col-md-6">
         <div class="panel panel-default">
           <div class="panel-heading">
-            <div class="text-center">
-              <a id="pomodoroButton" class="btn btn-default btn-lg" role="button"
-                  onclick="onPomodoroTimer()">Pomodoro</a>
-              <span class="hidden-xs">
-                <a id="shortButton" class="btn btn-default btn-lg" role="button"
-                    onclick="onShortTimer()">Short Break</a>
-                <a id="longButton" class="btn btn-default btn-lg" role="button"
-                    onclick="onLongTimer()">Long Break</a>
-              </span>
-              <div class="btn-group visible-xs-inline-block">
-                <a id="breakButton" class="btn btn-default btn-lg dropdown-toggle"
-                  role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      <span class="default-break-label">Break</span> <span class="caret"></span></a>
-                      <ul class="dropdown-menu">
-                        <li id="shortButtonDropdownItem">
-                          <a id="shortButtonResponsive" href="#"
-                            onclick="onShortTimer()">Short Break</a>
-                        </li>
-                        <li id="longButtonDropdownItem">
-                          <a id="longButtonResponsive" href="#"
-                            onclick="onLongTimer()">Long Break</a>
-                        </li>
-                      </ul>
+              <div class="text-center">
+                <div id="pomodoroButtonGroup" class="btn-group">
+                  <a id="pomodoroButton" class="btn btn-default btn-success"
+                    role="button" onclick="onPomodoroTimer()">
+                       <span class="default-task-label"><i class="fa fa-rocket"></i> <span class="hidden-xtreme">Begin </span>Task</span>
+                  </a>
+                  <a id="pomodoroButtonDropdown" class="btn btn-default btn-success dropdown-toggle"
+                    role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      <span class="caret"></span>
+                  </a>
+                  <ul class="dropdown-menu">
+                      <li id="minute25DropdownItem">
+                        <a id="minutes25" href="#" onclick="onPomodoroTimer(false)">25 mins - Default</a>
+                      </li>
+                      <li id="minute55DropdownItem">
+                        <a id="minutes55" href="#" onclick="onPomodoroTimer(true)">55 mins - Extended</a>
+                      </li>
+                  </ul>
+                </div>
+                <span class="hidden-xs">
+                  <a id="shortButton" class="btn btn-default" role="button"
+                      onclick="onShortTimer()"><i class="fa fa-headphones"></i> Short Break</a>
+                  <a id="longButton" class="btn btn-default" role="button"
+                      onclick="onLongTimer()"><i class="fa fa-headphones"></i> Long Break</a>
+                </span>
+                <div class="btn-group visible-xs-inline-block">
+                  <a id="breakButton" class="btn btn-default"
+                    role="button" onclick="onShortTimer()">
+                    <span class="default-break-label"><i class="fa fa-headphones"></i> <span class="hidden-xtreme">Take </span>Break</span>
+                  </a>
+                  <a id="breakButtonDropdown" class="btn btn-default dropdown-toggle"
+                    role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span class="caret"></span>
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li id="shortButtonDropdownItem">
+                      <a id="shortButtonResponsive" href="#"
+                        onclick="onShortTimer()">05:00 mins - Short Break</a>
+                    </li>
+                    <li id="longButtonDropdownItem">
+                      <a id="longButtonResponsive" href="#"
+                        onclick="onLongTimer()">15:00 mins - Long Break</a>
+                    </li>
+                  </ul>
+                </div>
               </div>
-            </div>
           </div>
           <div class="panel-body">
-            <div class="timer-time timer-container text-center">
-              <div class="timer-time-set timer-box" id="currentTime">
-                <span id="hoursValue" class="hidden">00</span><span class="hidden">:</span><span id="minutesValue">00</span><span>:</span><span id="secondsValue">00</span>
+            <div class="row">
+              <div class="timer-time timer-container text-center col-xs-offset-2 col-xs-8">
+                <div class="timer-time-set timer-box" id="currentTime">
+                  <span id="hoursValue" class="hidden">00</span><span class="hidden">:</span><span id="minutesValue">00</span><span>:</span><span id="secondsValue">00</span>
+                </div>
+                <div class="timer-time-set timer-box" id="nextTime">
+                  <span id="hoursNext" class="hidden">00</span><span class="hidden">:</span><span id="minutesNext">00</span><span>:</span><span id="secondsNext">00</span>
+                </div>
               </div>
-              <div class="timer-time-set timer-box" id="nextTime">
-                <span id="hoursNext" class="hidden">00</span><span class="hidden">:</span><span id="minutesNext">00</span><span>:</span><span id="secondsNext">00</span>
+              <div class="timer-bell-container pull-right col-xs-2 text-right">
+                <button id="soundButton" class="btn btn-link hidden"
+                  role="button" onclick="onSoundToggle()"><i class="fa fa-bell"></i></button>
               </div>
             </div>
           </div>
           <div class="panel-footer">
             <div class="text-center">
-              <a id="restartButton" class="btn btn-warning btn-lg" role="button"
+              <a id="restartButton" class="btn btn-warning" role="button"
                   onclick="onResetTimer()" disabled="disabled">
-                <span class="glyphicon glyphicon-step-backward" aria-hidden="true"></span> Reset
+                <i class="fa fa-step-backward"></i> Reset
               </a>
-              <a id="startButton" class="btn btn-primary btn-lg" role="button"
+              <a id="startButton" class="btn btn-primary" role="button"
                   onclick="onStartTimer()" disabled="disabled">
-                <span class="glyphicon glyphicon-play" aria-hidden="true"></span> Start
+                <i class="fa fa-play"></i> Start
               </a>
-              <a id="stopButton" class="btn btn-danger btn-lg" role="button"
+              <a id="stopButton" class="btn btn-danger" role="button"
                   onclick="onStopTimer()" disabled="disabled">
-                <span class="glyphicon glyphicon-stop" aria-hidden="true"></span> Stop
+                <i class="fa fa-stop"></i> Stop
               </a>
             </div>
           </div>
@@ -143,19 +170,19 @@
   <div class="footer">
     <div class="container text-center spaced-box-sm">
       <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fnavyaganduri.github.io%2Fpomodoro-timer-bootstrap%2Findex.html"
-        title="Share on Facebook" target="_blank" class="btn btn-facebook btn-social"><i class="fa fa-facebook fa-lg"></i>
+        title="Share on Facebook" target="_blank" class="btn btn-facebook btn-social btn-sm"><i class="fa fa-facebook fa-lg"></i>
         <span class="hidden-xs btn-social-text"> Facebook</span></a>
       <a href="http://twitter.com/home?status=Pomodoro%20Timer%20Lite%20%20-%20Simple%20and%20clean%20productivity%20tool%20to%20stay%20focused%20(http%3A%2F%2Fnavyaganduri.github.io%2Fpomodoro-timer-bootstrap%2Findex.html)"
-        title="Share on Twitter" target="_blank" class="btn btn-twitter btn-social"><i class="fa fa-twitter  fa-lg"></i>
+        title="Share on Twitter" target="_blank" class="btn btn-twitter btn-social btn-sm"><i class="fa fa-twitter fa-lg"></i>
         <span class="hidden-xs btn-social-text"> Twitter</span></a>
       <a href="https://plus.google.com/share?url=http%3A%2F%2Fnavyaganduri.github.io%2Fpomodoro-timer-bootstrap%2Findex.html"
-        title="Share on Google+" target="_blank" class="btn btn-googleplus btn-social"><i class="fa fa-google-plus fa-lg"></i>
+        title="Share on Google+" target="_blank" class="btn btn-googleplus btn-social btn-sm"><i class="fa fa-google-plus fa-lg"></i>
         <span class="hidden-xs btn-social-text"> Google+</span></a>
       <a href="http://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Fnavyaganduri.github.io%2Fpomodoro-timer-bootstrap%2Findex.html&title=Pomodoro%20Timer%20Lite%20%20-%20Simple%20and%20clean%20productivity%20tool%20to%20stay%20focused"
-        title="Share on LinkedIn" target="_blank" class="btn btn-linkedin btn-social"><i class="fa fa-linkedin fa-lg"></i>
+        title="Share on LinkedIn" target="_blank" class="btn btn-linkedin btn-social btn-sm"><i class="fa fa-linkedin fa-lg"></i>
         <span class="hidden-xs btn-social-text"> LinkedIn</span></a>
       <a href="http://www.reddit.com/submit?url=http%3A%2F%2Fnavyaganduri.github.io%2Fpomodoro-timer-bootstrap%2Findex.html&title=Pomodoro%20Timer%20Lite%20%20-%20Simple%20and%20clean%20productivity%20tool%20to%20stay%20focused"
-        title="Share on Reddit" target="_blank" class="btn btn-reddit btn-social"><i class="fa fa-reddit fa-lg"></i>
+        title="Share on Reddit" target="_blank" class="btn btn-reddit btn-social btn-sm"><i class="fa fa-reddit fa-lg"></i>
         <span class="hidden-xs btn-social-text"> Reddit</span></a>
     </div>
     <hr/>

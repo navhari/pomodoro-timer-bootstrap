@@ -1,7 +1,7 @@
 /**
  * pomodoro-timer.js
  **/
-var isDebug = false;
+var isDebug = true;
 
 var gHours = 0;
 var gMinutes = 0;
@@ -27,73 +27,123 @@ var renderHandle;
 var audio = new Audio('./sounds/beep.mp3');
 
 $(document).ready(function() {
-  onPomodoroTimer();
 
   beginRender();
-  enableButtons();
+
+  initTimer();
 });
 
-function enableButtons() {
-  $('#restartButton').removeAttr('disabled');
-  $('#startButton').removeAttr('disabled');
-  $('#stopButton').removeAttr('disabled');
-}
-
-function onPomodoroTimer(){
+function initTimer() {
 
   stopTimer();
+
+  $('#shortButton').removeClass('btn-success');
+  $('#longButton').removeClass('btn-success');
+  $('#breakButton').removeClass('btn-success');
+  $('#breakButtonDropdown').removeClass('btn-success');
+  $('#shortButtonDropdownItem').removeClass('active');
+  $('#longButtonDropdownItem').removeClass('active');
+
+  $('#pomodoroButton').addClass('btn-success');
+  $('#pomodoroButtonDropdown').addClass('btn-success');
 
   gHours = 0;
   gMinutes = 25;
   gSeconds = 0;
 
+  $('#minute25DropdownItem').addClass('active');
+  $('#minute55DropdownItem').removeClass('active');
+
   resetTimer();
 
-  $('#shortButton').removeClass('btn-success active');
-  $('#longButton').removeClass('btn-success active');
-  $('#breakButton').removeClass('btn-success active');
+  $('#restartButton').removeAttr('disabled');
+  $('#startButton').removeAttr('disabled');
+  $('#stopButton').removeAttr('disabled');
+
+}
+
+function onPomodoroTimer(isUseLong){
+
+  stopTimer();
+
+  $('#shortButton').removeClass('btn-success');
+  $('#longButton').removeClass('btn-success');
+  $('#breakButton').removeClass('btn-success');
+  $('#breakButtonDropdown').removeClass('btn-success');
   $('#shortButtonDropdownItem').removeClass('active');
   $('#longButtonDropdownItem').removeClass('active');
 
-  $('#pomodoroButton').addClass('btn-success  active');
+  $('#pomodoroButton').addClass('btn-success');
+  $('#pomodoroButtonDropdown').addClass('btn-success');
+
+  if(isUseLong) {
+    gHours = 0;
+    gMinutes = 55;
+    gSeconds = 0;
+
+    $('#minute55DropdownItem').addClass('active');
+    $('#minute25DropdownItem').removeClass('active');
+  } else {
+    gHours = 0;
+    gMinutes = 25;
+    gSeconds = 0;
+
+    $('#minute25DropdownItem').addClass('active');
+    $('#minute55DropdownItem').removeClass('active');
+  }
+
+  resetTimer();
+  startTimer();
+
 }
 
 function onShortTimer(){
 
   stopTimer();
 
+  $('#pomodoroButton').removeClass('btn-success');
+  $('#pomodoroButtonDropdown').removeClass('btn-success');
+  $('#minute55DropdownItem').removeClass('active');
+  $('#minute25DropdownItem').removeClass('active');
+  $('#longButton').removeClass('btn-success');
+  $('#longButtonDropdownItem').removeClass('active');
+
+  $('#shortButton').addClass('btn-success');
+  $('#breakButton').addClass('btn-success');
+  $('#breakButtonDropdown').addClass('btn-success');
+  $('#shortButtonDropdownItem').addClass('active');
+
   gHours = 0;
   gMinutes = 5;
   gSeconds = 0;
 
   resetTimer();
+  startTimer();
 
-  $('#pomodoroButton').removeClass('btn-success active');
-  $('#longButton').removeClass('btn-success active');
-  $('#longButtonDropdownItem').removeClass('active');
-
-  $('#shortButton').addClass('btn-success active');
-  $('#breakButton').addClass('btn-success active');
-  $('#shortButtonDropdownItem').addClass('active');
 }
 
 function onLongTimer(){
 
   stopTimer();
 
+  $('#pomodoroButton').removeClass('btn-success');
+  $('#pomodoroButtonDropdown').removeClass('btn-success active');
+  $('#minute55DropdownItem').removeClass('active');
+  $('#minute25DropdownItem').removeClass('active');
+  $('#shortButton').removeClass('btn-success');
+  $('#shortButtonDropdownItem').removeClass('active');
+
+  $('#longButton').addClass('btn-success');
+  $('#breakButton').addClass('btn-success');
+  $('#breakButtonDropdown').addClass('btn-success');
+  $('#longButtonDropdownItem').addClass('active');
+
   gHours = 0;
   gMinutes = 15;
   gSeconds = 0;
 
-  resetTimer();
-
-  $('#pomodoroButton').removeClass('btn-success active');
-  $('#shortButton').removeClass('btn-success active');
-  $('#shortButtonDropdownItem').removeClass('active');
-
-  $('#longButton').addClass('btn-success active');
-  $('#breakButton').addClass('btn-success active');
-  $('#longButtonDropdownItem').addClass('active');
+  resetTimer(true);
+  startTimer();
 
 }
 
@@ -107,7 +157,7 @@ function onStopTimer(){
 
 function onResetTimer(){
   stopTimer();
-  resetTimer();
+  resetTimer(true);
 }
 
 function playAlarm(){
@@ -116,7 +166,12 @@ function playAlarm(){
 
 function startTimer() {
   if(!isRunTimer) {
+
     beginTime = Date.now();
+
+      // give 1 second delay
+    beginTime+= (1 * 1000);
+
     isRunTimer = true;
   }
 }
@@ -128,7 +183,7 @@ function stopTimer() {
   }
 }
 
-function resetTimer(){
+function resetTimer(forceAnimate){
 
   timerDuration = (gHours*60*60*1000)+
                   (gMinutes*60*1000)+
@@ -136,7 +191,7 @@ function resetTimer(){
 
   remainingTime = timerDuration;
 
-  displayTimer();
+  displayTimer(forceAnimate);
 }
 
 function formatTime(intergerValue) {
@@ -169,7 +224,7 @@ function decrementTimer(){
   displayTimer();
 }
 
-function displayTimer(){
+function displayTimer(forceAnimate){
 
   var deltaTime=remainingTime;
 
@@ -188,11 +243,11 @@ function displayTimer(){
     console.log('secondsValue: ' + secondsValue);
   }
 
-  animateTime(hoursValue, minutesValue, secondsValue);
+  animateTime(hoursValue, minutesValue, secondsValue, forceAnimate);
 };
 
 
-function animateTime(remainingHours, remainingMinutes, remainingSeconds) {
+function animateTime(remainingHours, remainingMinutes, remainingSeconds, forceAnimate) {
 
   var $hoursValue = $('#hoursValue');
   var $minutesValue = $('#minutesValue');
@@ -228,17 +283,23 @@ function animateTime(remainingHours, remainingMinutes, remainingSeconds) {
   $secondsNext.text(secondsString);
 
   // set and animate
-  if(oldHoursString !== hoursString) {
+  if(forceAnimate || oldHoursString !== hoursString) {
+    $hoursValue.stop();
+    $hoursNext.stop();
     $hoursValue.animate({top: '-1em'});
     $hoursNext.animate({top: '-1em'});
   }
 
-  if(oldMinutesString !== minutesString) {
+  if(forceAnimate || oldMinutesString !== minutesString) {
+    $minutesValue.stop();
+    $minutesNext.stop();
     $minutesValue.animate({top: '-1em'});
     $minutesNext.animate({top: '-1em'});
   }
 
-  if(oldSecondsString !== secondsString) {
+  if(forceAnimate || oldSecondsString !== secondsString) {
+    $secondsValue.stop();
+    $secondsNext.stop();
     $secondsValue.animate({top: '-1em'});
     $secondsNext.animate({top: '-1em'});
   }
