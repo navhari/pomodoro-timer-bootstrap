@@ -1,7 +1,7 @@
 /**
  * pomodoro-timer.js
  **/
-var isDebug = true;
+var isDebug = false;
 
 var gHours = 0;
 var gMinutes = 0;
