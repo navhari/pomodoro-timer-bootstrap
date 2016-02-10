@@ -94,11 +94,11 @@
           <div class="panel-heading">
               <div class="text-center">
                 <div id="pomodoroButtonGroup" class="btn-group">
-                  <a id="pomodoroButton" class="btn btn-default btn-success"
+                  <a id="pomodoroButton" class="btn btn-default btn-success listen-guestures"
                     role="button" onclick="onPomodoroTimer()">
                        <span class="default-task-label"><i class="fa fa-rocket"></i> <span class="hidden-xtreme">Begin </span>Task</span>
                   </a>
-                  <a id="pomodoroButtonDropdown" class="btn btn-default btn-success dropdown-toggle"
+                  <a id="pomodoroButtonDropdown" class="btn btn-default btn-success dropdown-toggle listen-guestures"
                     role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                       <span class="caret"></span>
                   </a>
@@ -112,17 +112,17 @@
                   </ul>
                 </div>
                 <span class="hidden-xs">
-                  <a id="shortButton" class="btn btn-default" role="button"
+                  <a id="shortButton" class="btn btn-default listen-guestures" role="button"
                       onclick="onShortTimer()"><i class="fa fa-headphones"></i> Short Break</a>
-                  <a id="longButton" class="btn btn-default" role="button"
+                  <a id="longButton" class="btn btn-default listen-guestures" role="button"
                       onclick="onLongTimer()"><i class="fa fa-headphones"></i> Long Break</a>
                 </span>
                 <div class="btn-group visible-xs-inline-block">
-                  <a id="breakButton" class="btn btn-default"
+                  <a id="breakButton" class="btn btn-default listen-guestures"
                     role="button" onclick="onShortTimer()">
                     <span class="default-break-label"><i class="fa fa-headphones"></i> <span class="hidden-xtreme">Take </span>Break</span>
                   </a>
-                  <a id="breakButtonDropdown" class="btn btn-default dropdown-toggle"
+                  <a id="breakButtonDropdown" class="btn btn-default dropdown-toggle listen-guestures"
                     role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <span class="caret"></span>
                   </a>
@@ -150,26 +150,29 @@
                 </div>
               </div>
               <div class="timer-bell-container pull-right col-xs-2 text-right">
-                <button id="soundButton" class="btn btn-link"
+                <audio id="soundAudio" preload="auto">
+                  <source src="./sounds/beep.mp3" type="audio/mpeg">
+                </audio>
+                <button id="alarmButton" class="btn btn-link btn-xs btn-square-xs listen-guestures"
                   role="button" onclick="onSoundToggle()">
-                    <i class="fa fa-bell-slash"></i>
+                    <i class="fa fa-bell"></i>
                 </button>
               </div>
             </div>
           </div>
           <div class="panel-footer">
             <div class="text-center">
-              <a id="restartButton" class="btn btn-warning" role="button"
+              <a id="restartButton" class="btn btn-warning listen-guestures" role="button"
                   onclick="onResetTimer()" disabled="disabled">
                 <i class="fa fa-step-backward"></i> Reset
               </a>
-              <a id="startButton" class="btn btn-primary" role="button"
+              <a id="startButton" class="btn btn-primary listen-guestures" role="button"
                   onclick="onStartTimer()" disabled="disabled">
                 <i class="fa fa-play"></i> Start
               </a>
-              <a id="stopButton" class="btn btn-danger" role="button"
+              <a id="stopButton" class="btn btn-danger listen-guestures" role="button"
                   onclick="onStopTimer()" disabled="disabled">
-                <i class="fa fa-stop"></i> Stop
+                <i class="fa fa-pause"></i> Pause
               </a>
             </div>
           </div>
@@ -180,33 +183,39 @@
 
   <div class="footer">
     <div class="container">
-        <div class="container text-center spaced-box-sm">
-            <div class="fb-like" data-href="https://www.facebook.com/pomodoro.timer.lite" data-layout="button" data-action="like" data-show-faces="true" data-share="false">
+        <div class="row text-center spaced-box-sm">
+            <div class="col-xs-12">
+              <div class="fb-like" data-href="https://www.facebook.com/pomodoro.timer.lite" data-layout="button" data-action="like" data-show-faces="true" data-share="false">
+              </div>
             </div>
         </div>
-        <div class="container text-center spaced-box-sm">
-          <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fnavyaganduri.github.io%2Fpomodoro-timer-bootstrap%2Findex.html"
-            title="Share on Facebook" target="_blank" class="btn btn-facebook btn-social btn-sm"><i class="fa fa-facebook fa-lg"></i>
-            <span class="hidden-xs btn-social-text"> Facebook</span></a>
-          <a href="http://twitter.com/home?status=Pomodoro%20Timer%20Lite%20%20-%20Simple%20and%20clean%20productivity%20tool%20to%20stay%20focused%20(http%3A%2F%2Fnavyaganduri.github.io%2Fpomodoro-timer-bootstrap%2Findex.html)"
-            title="Share on Twitter" target="_blank" class="btn btn-twitter btn-social btn-sm"><i class="fa fa-twitter fa-lg"></i>
-            <span class="hidden-xs btn-social-text"> Twitter</span></a>
-          <a href="https://plus.google.com/share?url=http%3A%2F%2Fnavyaganduri.github.io%2Fpomodoro-timer-bootstrap%2Findex.html"
-            title="Share on Google+" target="_blank" class="btn btn-googleplus btn-social btn-sm"><i class="fa fa-google-plus fa-lg"></i>
-            <span class="hidden-xs btn-social-text"> Google+</span></a>
-          <a href="http://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Fnavyaganduri.github.io%2Fpomodoro-timer-bootstrap%2Findex.html&title=Pomodoro%20Timer%20Lite%20%20-%20Simple%20and%20clean%20productivity%20tool%20to%20stay%20focused"
-            title="Share on LinkedIn" target="_blank" class="btn btn-linkedin btn-social btn-sm"><i class="fa fa-linkedin fa-lg"></i>
-            <span class="hidden-xs btn-social-text"> LinkedIn</span></a>
-          <a href="http://www.reddit.com/submit?url=http%3A%2F%2Fnavyaganduri.github.io%2Fpomodoro-timer-bootstrap%2Findex.html&title=Pomodoro%20Timer%20Lite%20%20-%20Simple%20and%20clean%20productivity%20tool%20to%20stay%20focused"
-            title="Share on Reddit" target="_blank" class="btn btn-reddit btn-social btn-sm"><i class="fa fa-reddit fa-lg"></i>
-            <span class="hidden-xs btn-social-text"> Reddit</span></a>
+        <div class="row text-center spaced-box-sm">
+          <div class="col-xs-12">
+            <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fnavyaganduri.github.io%2Fpomodoro-timer-bootstrap%2Findex.html"
+              title="Share on Facebook" target="_blank" class="btn btn-facebook btn-social btn-sm"><i class="fa fa-facebook fa-lg"></i>
+              <span class="hidden-xs btn-social-text"> Facebook</span></a>
+            <a href="http://twitter.com/home?status=Pomodoro%20Timer%20Lite%20%20-%20Simple%20and%20clean%20productivity%20tool%20to%20stay%20focused%20(http%3A%2F%2Fnavyaganduri.github.io%2Fpomodoro-timer-bootstrap%2Findex.html)"
+              title="Share on Twitter" target="_blank" class="btn btn-twitter btn-social btn-sm"><i class="fa fa-twitter fa-lg"></i>
+              <span class="hidden-xs btn-social-text"> Twitter</span></a>
+            <a href="https://plus.google.com/share?url=http%3A%2F%2Fnavyaganduri.github.io%2Fpomodoro-timer-bootstrap%2Findex.html"
+              title="Share on Google+" target="_blank" class="btn btn-googleplus btn-social btn-sm"><i class="fa fa-google-plus fa-lg"></i>
+              <span class="hidden-xs btn-social-text"> Google+</span></a>
+            <a href="http://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Fnavyaganduri.github.io%2Fpomodoro-timer-bootstrap%2Findex.html&title=Pomodoro%20Timer%20Lite%20%20-%20Simple%20and%20clean%20productivity%20tool%20to%20stay%20focused"
+              title="Share on LinkedIn" target="_blank" class="btn btn-linkedin btn-social btn-sm"><i class="fa fa-linkedin fa-lg"></i>
+              <span class="hidden-xs btn-social-text"> LinkedIn</span></a>
+            <a href="http://www.reddit.com/submit?url=http%3A%2F%2Fnavyaganduri.github.io%2Fpomodoro-timer-bootstrap%2Findex.html&title=Pomodoro%20Timer%20Lite%20%20-%20Simple%20and%20clean%20productivity%20tool%20to%20stay%20focused"
+              title="Share on Reddit" target="_blank" class="btn btn-reddit btn-social btn-sm"><i class="fa fa-reddit fa-lg"></i>
+              <span class="hidden-xs btn-social-text"> Reddit</span></a>
+          </div>
         </div>
         <hr/>
-        <div class="container text-center spaced-box-sm">
-            <a class="btn btn-default btn-sm" href="https://github.com/navyaganduri/pomodoro-timer-bootstrap/"
-              title="Fork me on GitHub" role="button" target="_blank"><i class="fa fa-github"></i> Fork me on GitHub</a>
-            <a class="btn btn-default btn-sm" href="https://github.com/navyaganduri/pomodoro-timer-bootstrap/issues/new"
-              title="Submit Feedback" role="button" target="_blank"><i class="fa fa-github"></i> Submit Feedback</a>
+        <div class="row text-center spaced-box-sm">
+            <div class="col-xs-12">
+              <a class="btn btn-default btn-sm" href="https://github.com/navyaganduri/pomodoro-timer-bootstrap/"
+                title="Fork me on GitHub" role="button" target="_blank"><i class="fa fa-github"></i> Fork me on GitHub</a>
+              <a class="btn btn-default btn-sm" href="https://github.com/navyaganduri/pomodoro-timer-bootstrap/issues/new"
+                title="Submit Feedback" role="button" target="_blank"><i class="fa fa-github"></i> Submit Feedback</a>
+            </div>
         </div>
     </div>
   </div>

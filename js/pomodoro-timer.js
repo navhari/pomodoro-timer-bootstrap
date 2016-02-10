@@ -12,7 +12,7 @@ var beginTime;
 var timeElapsed;
 var remainingTime;
 var isRunTimer = false;
-var isSoundEnabled = false;
+var isSoundEnabled = true;
 
 var loopRenderInterval = 1000;
 var nextIntervalAdjust = 20;
@@ -25,7 +25,9 @@ var expectedRenderTime = 0;
 
 var renderHandle;
 
+var isGestureAquired = false;
 var audio = new Audio('./sounds/beep.mp3');
+var unmuteAudio = new Audio('./sounds/unmute.mp3');
 
 $(document).ready(function() {
 
@@ -61,28 +63,50 @@ function initTimer() {
   $('#startButton').removeAttr('disabled');
   $('#stopButton').removeAttr('disabled');
 
+  updateSound();
+
+  $('.listen-guestures').on('click', function() {
+    onGuestureFixAudio();
+  });
+}
+
+// Trick toplay sounds on mobile
+function onGuestureFixAudio() {
+  if(!isGestureAquired) {
+    audio.play();
+    audio.pause();
+    unmuteAudio.play();
+    unmuteAudio.pause();
+
+    isGestureAquired = true;
+  }
 }
 
 function onSoundToggle() {
+  console.log('entertoggle');
 
   if(isSoundEnabled) {
     isSoundEnabled = false;
   } else {
     isSoundEnabled = true;
+    unmuteAudio.pause();
+    unmuteAudio.play();
   }
 
+  console.log(isSoundEnabled);
   updateSound();
+  console.log('exittoggle');
 }
 
 function updateSound() {
   if(isSoundEnabled) {
-    $("#soundButton").removeClass("is-muted");
-    $("#soundButton > i").removeClass("fa-bell-slash");
-    $("#soundButton > i").addClass("fa-bell");
+    $("#alarmButton").removeClass("is-muted");
+    $("#alarmButton > i").removeClass("fa-bell-slash");
+    $("#alarmButton > i").addClass("fa-bell");
   } else {
-    $("#soundButton > i").removeClass("fa-bell");
-    $("#soundButton").addClass("is-muted");
-    $("#soundButton > i").addClass("fa-bell-slash");
+    $("#alarmButton > i").removeClass("fa-bell");
+    $("#alarmButton").addClass("is-muted");
+    $("#alarmButton > i").addClass("fa-bell-slash");
   }
 }
 
@@ -185,7 +209,8 @@ function onResetTimer(){
 }
 
 function playAlarm(){
-  if(isSoundEnabled) {    
+  if(isSoundEnabled) {
+    audio.pause();
     audio.play();
   }
 }
@@ -255,12 +280,15 @@ function displayTimer(forceAnimate){
   var deltaTime=remainingTime;
 
   var hoursValue=Math.floor(deltaTime/(1000*60*60));
+  hoursValue = hoursValue > 0 ? hoursValue : 0;
   deltaTime=deltaTime%(1000*60*60);
 
   var minutesValue=Math.floor(deltaTime/(1000*60));
+  minutesValue = minutesValue > 0 ? minutesValue : 0;
   deltaTime=deltaTime%(1000*60);
 
   var secondsValue=Math.floor(deltaTime/(1000));
+  secondsValue = secondsValue > 0 ? secondsValue : 0;
 
   if(isDebug) {
     console.log('----');

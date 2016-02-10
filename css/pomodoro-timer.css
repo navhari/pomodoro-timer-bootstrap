@@ -65,6 +65,10 @@ body {
   display: inline-block;
 }
 
+.btn-square-xs {
+  min-width: 28px;
+}
+
 .footer {
   width: 100%;
 }
