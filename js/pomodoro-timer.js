@@ -12,6 +12,7 @@ var beginTime;
 var timeElapsed;
 var remainingTime;
 var isRunTimer = false;
+var isSoundEnabled = false;
 
 var loopRenderInterval = 1000;
 var nextIntervalAdjust = 20;
@@ -60,6 +61,29 @@ function initTimer() {
   $('#startButton').removeAttr('disabled');
   $('#stopButton').removeAttr('disabled');
 
+}
+
+function onSoundToggle() {
+
+  if(isSoundEnabled) {
+    isSoundEnabled = false;
+  } else {
+    isSoundEnabled = true;
+  }
+
+  updateSound();
+}
+
+function updateSound() {
+  if(isSoundEnabled) {
+    $("#soundButton").removeClass("is-muted");
+    $("#soundButton > i").removeClass("fa-bell-slash");
+    $("#soundButton > i").addClass("fa-bell");
+  } else {
+    $("#soundButton > i").removeClass("fa-bell");
+    $("#soundButton").addClass("is-muted");
+    $("#soundButton > i").addClass("fa-bell-slash");
+  }
 }
 
 function onPomodoroTimer(isUseLong){
@@ -161,7 +185,9 @@ function onResetTimer(){
 }
 
 function playAlarm(){
-  audio.play();
+  if(isSoundEnabled) {    
+    audio.play();
+  }
 }
 
 function startTimer() {
