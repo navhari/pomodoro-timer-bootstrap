@@ -3,6 +3,14 @@ body {
   min-width: 320px;
 }
 
+body.apply-fonts {
+    font-family: 'Roboto', sans-serif;
+}
+
+div.page {
+    /*min-height: 480px;*/
+}
+
 .spaced-box-lg {
   margin: 48px;
 }
