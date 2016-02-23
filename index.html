@@ -66,10 +66,10 @@
     ga('send', 'pageview');
     </script>
 </head>
-<body class="apply-fonts">
-    <div class="container" id="ptl-nav">
+<body class="apply-fonts" data-spy="scroll" data-target="#pt-navbar-collapse">
+    <div id="home">
         <nav class="navbar navbar-default">
-            <div class="container-fluid">
+            <div class="container">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
                     data-target="#pt-navbar-collapse" aria-expanded="false">
@@ -77,24 +77,24 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span></button>
-                    <a class="navbar-brand" href="#">Pomodoro Timer Lite</a>
+                    <a class="navbar-brand" href="#home">Pomodoro Timer Lite</a>
                 </div>
                 <div id="pt-navbar-collapse" class="collapse navbar-collapse">
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="#ptl-about">About</a></li>
-                        <li><a href="#ptl-features">Features</a></li>
-                        <li><a href="#ptl-references">References</a></li>
-                        <li><a href="#ptl-blog" class="hidden">Blog</a></li>
+                        <li><a href="#about"><i class="fa fa-map-o hidden"></i> About</a></li>
+                        <li><a href="#features"><i class="fa fa-list-ul hidden"></i> Features</a></li>
+                        <li><a href="#mentions"><i class="fa fa-comments hidden"></i> Mentions</a></li>
+                        <li><a href="#blog" class="hidden">Blog</a></li>
                     </ul>
                 </div>
             </div>
         </nav>
     </div>
-    <div id="ptl-app" class="page">
+    <div id="app" class="page-section">
         <div class="container">
             <div class="row">
                 <div class="col-xs-12 col-sm-offset-2 col-sm-8 col-md-offset-3 col-md-6">
-                    <div class="panel panel-default">
+                  <div class="panel panel-default">
                         <div class="panel-heading">
                             <div class="text-center">
                                 <div id="pomodoroButtonGroup" class="btn-group">
@@ -106,10 +106,10 @@
                                     <span class="caret"></span></a>
                                     <ul class="dropdown-menu">
                                         <li id="minute25DropdownItem">
-                                            <a id="minutes25" href="#" onclick="onPomodoroTimer(false)">25 mins - Default</a>
+                                            <a id="minutes25" href="#" onclick="onPomodoroTimer(false)">25 minutes - Default Task</a>
                                         </li>
                                         <li id="minute55DropdownItem">
-                                            <a id="minutes55" href="#" onclick="onPomodoroTimer(true)">55 mins - Extended</a>
+                                            <a id="minutes55" href="#" onclick="onPomodoroTimer(true)">55 minutes - Extended Task</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -126,14 +126,14 @@
                                     <a id="breakButtonDropdown" class="btn btn-default dropdown-toggle listen-guestures"
                                     role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     <span class="caret"></span></a>
-                                    <ul class="dropdown-menu">
+                                    <ul class="dropdown-menu dropdown-menu-right">
                                         <li id="shortButtonDropdownItem">
                                             <a id="shortButtonResponsive" href="#"
-                                            onclick="onShortTimer()">05:00 mins - Short Break</a>
+                                            onclick="onShortTimer()">05 minutes - Short Break</a>
                                         </li>
                                         <li id="longButtonDropdownItem">
                                             <a id="longButtonResponsive" href="#"
-                                            onclick="onLongTimer()">15:00 mins - Long Break</a>
+                                            onclick="onLongTimer()">15 minutes - Long Break</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -197,14 +197,15 @@
         <div class="container">
             <div class="row text-center spaced-box-sm">
                 <div class="col-xs-12">
-                    <div class="fb-like" data-href="https://www.facebook.com/pomodoro.timer.lite" data-layout="button" data-action="like" data-show-faces="true" data-share="false">
+                    <div class="fb-like" data-href="https://www.facebook.com/pomodoro.timer.lite"
+                        data-layout="button_count" data-action="like" data-show-faces="true" data-share="false">
                     </div>
                 </div>
             </div>
         </div>
         <div class="container">
-            <hr/>
-            <div class="row text-center">
+            <hr class="separator-xs"/>
+            <div class="row text-center spaced-box-sm">
                 <div class="col-xs-12">
                     <a class="btn btn-default btn-sm" href="https://github.com/navyaganduri/pomodoro-timer-bootstrap/"
                     title="Fork me on GitHub" role="button" target="_blank"><i class="fa fa-github"></i> Fork me on GitHub</a>
@@ -213,75 +214,188 @@
                 </div>
             </div>
         </div>
-    </div>
 
-    <div id="ptl-about" class="page">
+        <div class="script-unit adsense-unit-responsive">
+            <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+            <!-- Basic Ad Unit - Pomodoro Timer -->
+            <ins class="adsbygoogle"
+            style="display:block"
+            data-ad-client="ca-pub-9562777118031663"
+            data-ad-slot="4404719232"
+            data-ad-format="auto"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
+    </div>
+    <div id="about" class="page-section page-section-light about-section">
         <div class="container">
-            <hr/>
             <div class="pull-right">
-                <a href="#">Back to app</a>
+                <a href="#home" class="btn btn-goto" role="button">Go back to app</a>
             </div>
-            <div>
-                <h1>About Pomodoro Timer Lite</h1>
-                <p>Pomodoro Timer Lite is a simple and clean online productivity timer app for your desktop and smartphone browsers. It's inspired by the popular Pomodoro Technique time management method, that helps you stay focused by timing your daily tasks and giving you much needed breaks in between to boost your productivity.</p>
+            <div class="page-header">
+                <h1><i class="fa fa-map-o"></i> About</h1>
             </div>
-            <h2> What is Pomodoro Technique?</h1>
-            <p>The Pomodoro Technique is a time management method developed by Francesco Cirillo in the late 1980s.The technique uses a timer to break down work into intervals traditionally 25 minutes in length, separated by short breaks. These intervals are known as "pomodoros", the plural in English of the Italian word pomodoro meaning "tomato".The method is based on the idea that frequent breaks can improve mental agility.(The timer length can vary as per a individuals choice.)</p>
-            <h3>How to implement</h2>
+
+            <p class="text-indent-md"><strong>Pomodoro Timer Lite</strong> is a simple and clean online productivity timer app for your desktop and smartphone browsers. It's inspired by the popular Pomodoro Technique time management method, that helps you stay focused by timing your daily tasks and giving you much needed breaks in between to boost your productivity.</p>
+
+            <h2><i class="fa fa-bolt"></i> Pomodoro Technique</h2>
+            <p class="text-indent-md">The Pomodoro Technique is a time management method developed by Francesco Cirillo in the late 1980s.The technique uses a timer to break down work into intervals traditionally 25 minutes in length, separated by short breaks. These intervals are known as "pomodoros", the plural in English of the Italian word pomodoro meaning "tomato".The method is based on the idea that frequent breaks can improve mental agility.(The timer length can vary as per a individuals choice.)</p>
+
+            <h3><i class="fa fa-paw"></i> Getting started</h3>
             <p>There are five basic steps to implementing the technique:
-                <ol>
-                    <li>Decide on the task to be done</li>
-                    <li>Set the pomodoro timer to n minutes</li>
-                    <li>Work on the task until the timer rings; record with an x</li>
-                    <li>Take a short break (3–5 minutes)</li>
-                    <li>After four pomodoros, take a longer break (15–30 minutes)</li>
-                </ol>
+                <ul class="fa-ul">
+                    <li><i class="fa-li fa fa-check"></i> Decide on the task to be done</li>
+                    <li><i class="fa-li fa fa-check"></i> Set the pomodoro timer to n minutes</li>
+                    <li><i class="fa-li fa fa-check"></i> Work on the task until the timer rings; record with an x</li>
+                    <li><i class="fa-li fa fa-check"></i> Take a short break (3–5 minutes)</li>
+                    <li><i class="fa-li fa fa-check"></i> After four pomodoros, take a longer break (15–30 minutes)</li>
+                </ul>
             </p>
         </div>
     </div>
 
-    <div id="ptl-features" class="page">
+    <div id="features" class="page-section page-section-light features-section">
         <div class="container">
-            <hr/>
             <div class="pull-right">
-                <a href="#">Back to app</a>
+                <a href="#home" class="btn btn-goto" role="button">Go back to app</a>
             </div>
-            <div>
-                <h1>Features</h1>
+            <div class="page-header">
+                <h1><i class="fa fa-list-ul"></i> Features</h1>
             </div>
-            <ol>
-                <li>25:00 mins - Standard Timer </li>
-                <li>55:00 mins - Extended Timer</li>
-                <li>05:00 mins - Short Break</li>
-                <li>15:00 mins - Long Break</li>
-                <li>Simple and Clean User Interface</li>
-                <li>Highly Accurate - No time drift as observed in many web based apps</li>
-                <li>HTML5 App - Works on any device with latest browser. No installation needed</li>
-                <li>Responsive Design - Adjusts to both Mobile and Desktop Browsers</li>
-                <li>Hosted on GitHub - You can fork and contribute to the project</li>
-            </ol>
+            <ul class="media-list">
+                <li class="media">
+                  <div class="media-left">
+                    <i class="fa fa-magic fa-3x fa-border media-object"></i>
+                  </div>
+                  <div class="media-body">
+                    <div class="media-heading"><h4>Simple and Clean</h4></div>
+                    <p>Simple, clean and easy to use interface lets you focus better with less distractions.</p>
+                  </div>
+                </li>
+                <li class="media">
+                  <div class="media-left">
+                    <i class="fa fa-rocket fa-3x fa-border media-object"></i>
+                  </div>
+                  <div class="media-body">
+                    <div class="media-heading"><h4>Default and Extended Tasks</h4></div>
+                    <p>Based on your preference you can choose between Default (25 minutes) and Extended (55 minutes) task timers.</p>
+                    <p>Supports 2 task timer durations:</p>
+                    <ul>
+                      <li>25:00 minutes - Default Task</li>
+                      <li>55:00 minutes - Extended Task</li>
+                    </ul>
+                  </div>
+                </li>
+                <li class="media">
+                  <div class="media-left">
+                    <i class="fa fa-headphones fa-3x fa-border media-object"></i>
+                  </div>
+                  <div class="media-body">
+                    <div class="media-heading"><h4>Short and Long Breaks</h4></div>
+                    <p>Supports 2 break timer durations:</p>
+                    <ul>
+                      <li>05:00 minutes - Short Break</li>
+                      <li>15:00 minutes - Long Break</li>
+                    </ul>
+                  </div>
+                </li>
+                <li class="media">
+                  <div class="media-left">
+                    <i class="fa fa-bell-o fa-3x fa-border media-object"></i>
+                  </div>
+                  <div class="media-body">
+                    <div class="media-heading"><h4>Audio Notifications</h4></div>
+                    <p>A bell sound notifies you when your timer has ended. You can also mute the sounds if need be.</p>
+                  </div>
+                </li>
+                <li class="media">
+                  <div class="media-left">
+                    <i class="fa fa-tachometer fa-3x fa-border media-object"></i>
+                  </div>
+                  <div class="media-body">
+                    <div class="media-heading"><h4>Highly Accurate</h4></div>
+                    <p>No time drift as observed in many web based apps. The Promodor Timer Lite app measures and auto corrects itself when it observes a time drift that browsers often experience. Say, when you lock and unlock you smartphone.</p>
+                  </div>
+                </li>
+                <li class="media">
+                  <div class="media-left">
+                    <i class="fa fa-desktop fa-3x fa-border media-object"></i>
+                  </div>
+                  <div class="media-body">
+                    <div class="media-heading"><h4>Online HTML5 App</h4></div>
+                    <p>Works on any device with a latest browser. No installation needed.</p>
+                  </div>
+                </li>
+                <li class="media">
+                  <div class="media-left">
+                    <i class="fa fa-expand fa-3x fa-border media-object"></i>
+                  </div>
+                  <div class="media-body">
+                    <div class="media-heading"><h4>Responsive Design</h4></div>
+                    <p>Adjusts to all Smartphone, Tablet and Desktop screen sizes.</p>
+                  </div>
+                </li>
+                <li class="media">
+                  <div class="media-left">
+                    <i class="fa fa-github-alt fa-3x fa-border media-object"></i>
+                  </div>
+                  <div class="media-body">
+                    <div class="media-heading"><h4>Hosted on GitHub</h4></div>
+                    <p>You can fork and contribute to the project. You just need a <strong>github.com</strong> account.</p>
+                  </div>
+                </li>
+            </ul>
         </div>
     </div>
 
-    <div id="ptl-references" class="page">
+    <div id="mentions" class="page-section page-section-light mentions-section">
         <div class="container">
-            <hr/>
             <div class="pull-right">
-                <a href="#">Back to app</a>
+                <a href="#home" class="btn btn-goto" role="button">Go back to app</a>
             </div>
-            <div>
-                <h1>References</h1>
+            <div class="page-header">
+                <h1><i class="fa fa-comments"></i> Mentions</h1>
             </div>
-            <ul>
-                <li><a href="http://builtwithbootstrap.com/post/139370473490/pomodoro-timer-lite-a-simple-and-clean-online">Pomodoro Timer Lite listed on Built with Bootstrap</a></li>
-                <li><a href="https://www.facebook.com/pomodoro.timer.lite/">Pomodoro Timer Lite's Facebook Page</a></li>
-                <li><a href="https://www.reddit.com/r/productivity/comments/44hpqk/pomodoro_timer_lite_simple_and_clean_productivity/">Pomodoro Timer Lite's Reddit Thread</a></li>
+            <ul class="media-list">
+                <li class="media">
+                  <div class="media-left">
+                    <a href="http://builtwithbootstrap.com/post/139370473490/pomodoro-timer-lite-a-simple-and-clean-online">
+                      <i class="fa fa-3x fa-border"><strong>B</strong></i>
+                    </a>
+                  </div>
+                  <div class="media-body">
+                    <div class="media-heading"><h4>Built with Bootstrap</h4></div>
+                    <a href="http://builtwithbootstrap.com/post/139370473490/pomodoro-timer-lite-a-simple-and-clean-online">Pomodoro Timer Lite listed on Built with Bootstrap</a>
+                  </div>
+                </li>
+                <li class="media">
+                  <div class="media-left">
+                    <a href="https://www.facebook.com/pomodoro.timer.lite/">
+                      <i class="fa fa-facebook fa-3x fa-border"></i>
+                    </a>
+                  </div>
+                  <div class="media-body">
+                    <div class="media-heading"><h4>Facebook Page</h4></div><a href="https://www.facebook.com/pomodoro.timer.lite/">Pomodoro Timer Lite's Facebook Page</a>
+                  </div>
+                </li>
+                <li class="media">
+                  <div class="media-left">
+                    <a href="https://www.reddit.com/r/productivity/comments/44hpqk/pomodoro_timer_lite_simple_and_clean_productivity/">
+                      <i class="fa fa-reddit-alien fa-3x fa-border"></i>
+                    </a>
+                  </div>
+                  <div class="media-body">
+                    <div class="media-heading"><h4>Reddit Activity</h4></div><a href="https://www.reddit.com/r/productivity/comments/44hpqk/pomodoro_timer_lite_simple_and_clean_productivity/">Pomodoro Timer Lite's Reddit Thread</a>
+                  </div>
+                </li>
             </ul>
         </div>
     </div>
     <div class="footer">
+        <hr/>
         <div class="container">
-            <hr/>
+          <div class="text-center">
+            <code>Pomodoro Timer Lite - v0.1.9; Built by <a href="https://github.com/navyaganduri" target="_blank">@navyaganduri</a> and <a href="https://github.com/dostiharise" target="_blank">@dostiharise</a>;</code>
+          </div>
         </div>
     </div>
 
@@ -291,16 +405,6 @@
     <script src="libs/bootstrap/js/bootstrap.js"></script>
     <script src="js/pomodoro-timer.js"></script>
 
-    <div class="script-unit adsense-unit-responsive">
-        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-        <!-- Basic Ad Unit - Pomodoro Timer -->
-        <ins class="adsbygoogle"
-        style="display:block"
-        data-ad-client="ca-pub-9562777118031663"
-        data-ad-slot="4404719232"
-        data-ad-format="auto"></ins>
-        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-    </div>
     <div id="fb-root"></div>
     <script>
     (function(d, s, id) {

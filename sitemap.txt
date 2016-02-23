@@ -1,2 +1,1 @@
 http://navyaganduri.github.io/pomodoro-timer-bootstrap/
-http://navyaganduri.github.io/pomodoro-timer-bootstrap/about.html

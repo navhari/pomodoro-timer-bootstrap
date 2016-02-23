@@ -1,6 +1,9 @@
 body {
   overflow-y: scroll;
   min-width: 320px;
+
+  /* needed for scroll-spy to work */
+  position: relative;
 }
 
 body.apply-fonts {
@@ -8,7 +11,14 @@ body.apply-fonts {
 }
 
 div.page {
-    /*min-height: 480px;*/
+}
+
+.separator-xs {
+  margin: 8px;
+}
+
+.separator-sm {
+  margin: 16px;
 }
 
 .spaced-box-lg {
@@ -30,6 +40,42 @@ div.page {
 .timer-time {
   line-height:1em;
   font-size: 7em;
+}
+
+.page-section {
+    min-height: 900px;
+    padding-top: 32px;
+    padding-bottom: 32px;
+}
+
+.page-section-light,
+.page-section-light a,
+.page-section-light a:hover,
+.page-section-light a:focus,
+.page-section-light a:active {
+  color: #ffffff;
+  outline: none;
+}
+
+.page-section-dark,
+.page-section-dark a,
+.page-section-dark a:hover,
+.page-section-dark a:focus,
+.page-section-dark a:active {
+  color: #000000;
+  outline: none;
+}
+
+.about-section {
+  background: #3F51B5;
+}
+
+.features-section {
+  background: #3F51B5;
+}
+
+.mentions-section{
+  background: #3F51B5;
 }
 
 @media screen and (max-width: 352px) {
@@ -79,6 +125,7 @@ div.page {
 
 .footer {
   width: 100%;
+  height: 64px;
 }
 
 .btn-social {
@@ -128,6 +175,31 @@ div.page {
 
 .btn-social-text {
   display: none !important;
+}
+
+.btn-goto,
+.btn-goto:hover,
+.btn-goto:focus,
+.btn-goto:active {
+  border-color: #ffffff !important;
+}
+
+i.fa.fa-border {
+  width: 1.8em;
+  height: 1.4em;
+  text-align: center;
+}
+
+p.text-indent-sm {
+  text-indent: 3em;
+}
+
+p.text-indent-md {
+  text-indent: 4em;
+}
+
+p.text-indent-lg {
+  text-indent: 6em;
 }
 
 .fb-like-unit {
