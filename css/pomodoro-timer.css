@@ -14,7 +14,7 @@ div.page {
 }
 
 .separator-xs {
-  margin: 8px;
+  margin: 4px;
 }
 
 .separator-sm {
@@ -42,8 +42,11 @@ div.page {
   font-size: 7em;
 }
 
+.app-section {
+    min-height: 480px;
+}
+
 .page-section {
-    min-height: 900px;
     padding-top: 32px;
     padding-bottom: 32px;
 }
@@ -125,7 +128,8 @@ div.page {
 
 .footer {
   width: 100%;
-  height: 64px;
+  margin-top: 16px;
+  margin-bottom: 16px;
 }
 
 .btn-social {
@@ -209,6 +213,7 @@ p.text-indent-lg {
 .adsense-unit-responsive {
     width: 100%;
     min-width: 320px;
+    min-height: 0px;
     max-height: 400px;
     text-align: center;
 
