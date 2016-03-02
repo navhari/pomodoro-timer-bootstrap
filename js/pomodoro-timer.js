@@ -13,6 +13,7 @@ var timeElapsed;
 var remainingTime;
 var isRunTimer = false;
 var isSoundEnabled = true;
+var isStopEnabled = false;
 
 var loopRenderInterval = 1000;
 var nextIntervalAdjust = 20;
@@ -83,7 +84,6 @@ function onGuestureFixAudio() {
 }
 
 function onSoundToggle() {
-  console.log('entertoggle');
 
   if(isSoundEnabled) {
     isSoundEnabled = false;
@@ -93,9 +93,7 @@ function onSoundToggle() {
     unmuteAudio.play();
   }
 
-  console.log(isSoundEnabled);
   updateSound();
-  console.log('exittoggle');
 }
 
 function updateSound() {
@@ -208,6 +206,26 @@ function onResetTimer(){
   resetTimer(true);
 }
 
+function afterStop() {
+
+    $('#restartButton').addClass('hidden');
+    $('#startButton').removeClass('hidden');
+    $('#stopButton').addClass('hidden');
+
+}
+
+function afterStart() {
+
+    $('#restartButton').removeClass('hidden');
+    $('#startButton').addClass('hidden');
+
+    if(isStopEnabled) {
+        $('#stopButton').removeClass('hidden');
+    }
+
+}
+
+
 function playAlarm(){
   if(isSoundEnabled) {
     audio.pause();
@@ -224,13 +242,16 @@ function startTimer() {
     beginTime+= (1 * 1000);
 
     isRunTimer = true;
+    afterStart();
   }
 }
 
 function stopTimer() {
   if(isRunTimer) {
     timerDuration = remainingTime;
+
     isRunTimer = false;
+    afterStop();
   }
 }
 

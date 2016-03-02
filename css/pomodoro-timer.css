@@ -10,7 +10,22 @@ body.apply-fonts {
     font-family: 'Roboto', sans-serif;
 }
 
-div.page {
+.navbar-light {
+}
+
+.navbar-brand > .brand-icon {
+    display: inline;
+    width: 24px;
+    height: 24px;
+    line-height: 1em;
+    vertical-align: middle;
+}
+
+.navbar-brand > .brand-name {
+    display: inline;
+    font-size: 20px;
+    line-height: 1em;
+    vertical-align: middle;
 }
 
 .separator-xs {
@@ -118,6 +133,14 @@ div.page {
 .timer-box > span {
   position: relative;
   display: inline-block;
+}
+
+.container-xs {
+    min-height: 32px;
+}
+
+.btn-wide {
+  min-width: 96px;
 }
 
 .btn-square-xs {
