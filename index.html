@@ -169,7 +169,7 @@
                                 <i class="fa fa-play"></i> Start</a>
                                 <a id="stopButton" class="btn btn-danger btn-wide listen-guestures hidden" role="button"
                                 onclick="onStopTimer()" disabled="disabled">
-                                <i class="fa fa-stop"></i> Stop</a>
+                                <i class="fa fa-pause"></i> Pause</a>
                             </div>
                         </div>
                     </div>
@@ -218,42 +218,53 @@
                 </div>
             </div>
         </div>
-        <hr class="separator-xs"/>
+        <div class="container">
+            <hr class="separator-xs"/>
+            <div class="row text-center spaced-box-sm">
+                <div class="col-xs-12">
+                    <a role="button" class="btn btn-default btn-lg" href="#comments"><i class="fa fa-lg fa-comment-o"></i> Leave a Comment</a>
+                </div>
+            </div>
+        </div>
     </div>
     <div id="about" class="page-section page-section-light about-section">
         <div class="container">
             <div class="pull-right">
-                <a href="#home" class="btn btn-goto" role="button">Go back to app</a>
+                <a href="#home" class="btn btn-goto" role="button"><i class="fa fa-angle-double-up"></i> Go back to app</a>
             </div>
             <div class="page-header">
-                <h1><i class="fa fa-map-o"></i> About</h1>
+                <h2><i class="fa fa-map-o"></i> About</h2>
             </div>
-
             <p class="text-indent-md"><strong>Pomodoro Timer Lite</strong> is a simple and clean online productivity timer app for your desktop and smartphone browsers. It's inspired by the popular Pomodoro Technique time management method, that helps you stay focused by timing your daily tasks and giving you much needed breaks in between to boost your productivity.</p>
 
-            <h2><i class="fa fa-bolt"></i> Pomodoro Technique</h2>
-            <p class="text-indent-md">The Pomodoro Technique is a time management method developed by Francesco Cirillo in the late 1980s.The technique uses a timer to break down work into intervals traditionally 25 minutes in length, separated by short breaks. These intervals are known as "pomodoros", the plural in English of the Italian word pomodoro meaning "tomato".The method is based on the idea that frequent breaks can improve mental agility.(The timer length can vary as per a individuals choice.)</p>
+            <h3><i class="fa fa-bolt"></i> What is the Pomodoro Technique?</h3>
 
-            <h3><i class="fa fa-paw"></i> Getting started</h3>
-            <p>There are five basic steps to implementing the technique:
-                <ul class="fa-ul">
-                    <li><i class="fa-li fa fa-check"></i> Decide on the task to be done</li>
-                    <li><i class="fa-li fa fa-check"></i> Set the pomodoro timer to n minutes</li>
-                    <li><i class="fa-li fa fa-check"></i> Work on the task until the timer rings; record with an x</li>
-                    <li><i class="fa-li fa fa-check"></i> Take a short break (3–5 minutes)</li>
-                    <li><i class="fa-li fa fa-check"></i> After four pomodoros, take a longer break (15–30 minutes)</li>
-                </ul>
-            </p>
+            <div class="row">
+                <div class="col-md-12">
+                    <p class="text-indent-md">The Pomodoro Technique is a time management method developed by Francesco Cirillo in the late 1980s.The technique uses a timer to break down work into intervals traditionally 25 minutes in length, separated by short breaks. These intervals are known as "pomodoros", the plural in English of the Italian word pomodoro meaning "tomato".The method is based on the idea that frequent breaks can improve mental agility.(The timer length can vary as per a individuals choice.)</p>
+
+                    <h3><i class="fa fa-paw"></i> Getting started</h3>
+                    <p>There are five basic steps to implementing the technique:
+                        <ul class="fa-ul">
+                            <li><i class="fa-li fa fa-check"></i> Decide on the task to be done</li>
+                            <li><i class="fa-li fa fa-check"></i> Set the pomodoro timer to n minutes</li>
+                            <li><i class="fa-li fa fa-check"></i> Work on the task until the timer rings; record with an x</li>
+                            <li><i class="fa-li fa fa-check"></i> Take a short break (3–5 minutes)</li>
+                            <li><i class="fa-li fa fa-check"></i> After four pomodoros, take a longer break (15–30 minutes)</li>
+                        </ul>
+                    </p>
+                </div>
+            </div>
         </div>
     </div>
 
     <div id="features" class="page-section page-section-light features-section">
         <div class="container">
             <div class="pull-right">
-                <a href="#home" class="btn btn-goto" role="button">Go back to app</a>
+                <a href="#home" class="btn btn-goto" role="button"><i class="fa fa-angle-double-up"></i> Go back to app</a>
             </div>
             <div class="page-header">
-                <h1><i class="fa fa-list-ul"></i> Features</h1>
+                <h2><i class="fa fa-list-ul"></i> Features</h2>
             </div>
             <ul class="media-list">
                 <li class="media">
@@ -344,69 +355,115 @@
     <div id="mentions" class="page-section page-section-light mentions-section">
         <div class="container">
             <div class="pull-right">
-                <a href="#home" class="btn btn-goto" role="button">Go back to app</a>
+                <a href="#home" class="btn btn-goto" role="button"><i class="fa fa-angle-double-up"></i> Go back to app</a>
             </div>
             <div class="page-header">
-                <h1><i class="fa fa-comments"></i> Mentions</h1>
+                <h2><i class="fa fa-comments"></i> Mentions</h2>
             </div>
-            <ul class="media-list">
-                <li class="media">
-                  <div class="media-left">
-                      <i class="fa fa-3x fa-border"><strong>B</strong></i>
-                  </div>
-                  <div class="media-body">
-                    <div class="media-heading"><h4>Built with Bootstrap</h4></div>
-                    <a target="_blank" href="http://builtwithbootstrap.com/post/139370473490/pomodoro-timer-lite-a-simple-and-clean-online">Pomodoro Timer Lite listed on Built with Bootstrap <i class="fa fa-fw fa-external-link"></i></a>
+            <div class="row">
+                <div class="col-md-12">
+                    <ul class="media-list">
+                        <li class="media">
+                          <div class="media-left">
+                              <i class="fa fa-3x fa-border"><strong>B</strong></i>
+                          </div>
+                          <div class="media-body">
+                            <div class="media-heading"><h4>Built with Bootstrap</h4></div>
+                            <a target="_blank" href="http://builtwithbootstrap.com/post/139370473490/pomodoro-timer-lite-a-simple-and-clean-online">Pomodoro Timer Lite listed on Built with Bootstrap <i class="fa fa-fw fa-external-link"></i></a>
 
-                  </div>
-                </li>
-                <li class="media">
-                  <div class="media-left">
-                    <i class="fa fa-facebook fa-3x fa-border"></i>
-                  </div>
-                  <div class="media-body">
-                    <div class="media-heading"><h4>Facebook Page</h4></div>
-                    <a target="_blank" href="https://www.facebook.com/pomodoro.timer.lite/">Pomodoro Timer Lite's Facebook Page <i class="fa fa-fw fa-external-link"></i></a>
-                  </div>
-                </li>
-                <li class="media">
-                  <div class="media-left">
-                    <i class="fa fa-reddit-alien fa-3x fa-border"></i>
-                  </div>
-                  <div class="media-body">
-                    <div class="media-heading"><h4>Reddit Activity</h4></div>
-                    <ul>
-                        <li>
-                            <a target="_blank" href="https://www.reddit.com/r/GetStudying/comments/47iyw0/have_you_tried_the_pomodoro_technique_yet_get/">
-                                /r/GetStudying <i class="fa fa-fw fa-external-link"></i>
-                            </a>
+                          </div>
                         </li>
-                        <li>
-                            <a target="_blank" href="https://www.reddit.com/r/UsefulWebsites/comments/47in54/pomodoro_timer_lite_simple_and_clean_productivity/">
-                                /r/UsefulWebsites <i class="fa fa-fw fa-external-link"></i>
-                            </a>
+                        <li class="media">
+                          <div class="media-left">
+                            <i class="fa fa-facebook fa-3x fa-border"></i>
+                          </div>
+                          <div class="media-body">
+                            <div class="media-heading"><h4>Facebook Page</h4></div>
+                            <a target="_blank" href="https://www.facebook.com/pomodoro.timer.lite/">Pomodoro Timer Lite's Facebook Page <i class="fa fa-fw fa-external-link"></i></a>
+                          </div>
                         </li>
-                        <li>
-                            <a target="_blank" href="https://www.reddit.com/r/productivity/comments/44hpqk/pomodoro_timer_lite_simple_and_clean_productivity/">
-                                /r/productivity <i class="fa fa-fw fa-external-link"></i>
-                            </a>
+                        <li class="media">
+                          <div class="media-left">
+                            <i class="fa fa-reddit-alien fa-3x fa-border"></i>
+                          </div>
+                          <div class="media-body">
+                            <div class="media-heading"><h4>Reddit Activity</h4></div>
+                            <ul>
+                                <li>
+                                    <a target="_blank" href="https://www.reddit.com/r/GetStudying/comments/47iyw0/have_you_tried_the_pomodoro_technique_yet_get/">
+                                        /r/GetStudying <i class="fa fa-fw fa-external-link"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a target="_blank" href="https://www.reddit.com/r/UsefulWebsites/comments/47in54/pomodoro_timer_lite_simple_and_clean_productivity/">
+                                        /r/UsefulWebsites <i class="fa fa-fw fa-external-link"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a target="_blank" href="https://www.reddit.com/r/productivity/comments/44hpqk/pomodoro_timer_lite_simple_and_clean_productivity/">
+                                        /r/productivity <i class="fa fa-fw fa-external-link"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                          </div>
                         </li>
                     </ul>
-                  </div>
-                </li>
-            </ul>
+                </div>
+            </div>
         </div>
     </div>
-    <div class="footer">
+    <div id="comments">
         <div class="container">
-            <hr class="separator-xs"/>
-            <div class="text-center spaced-box-xs">
+            <div class="row text-center spaced-box-sm">
+                <div class="col-md-12">
+                    <div class="pull-right">
+                        <a role="button" class="btn btn-default" href="#home"><i class="fa fa-angle-double-up"></i> Go back to app</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr class="separator-xs"/>
+        <div class="container">
+            <div class="row text-center spaced-box-sm">
+                <div class="col-md-12">
+                    <div id="disqus_thread"></div>
+                    <script>
+                        var disqus_config = function () {
+                            this.page.url = 'https://navyaganduri.github.io/pomodoro-timer-bootstrap/';
+                            this.page.identifier = 'pomodoro-timer-lite-v0';
+                        };
+                        (function() { // DON'T EDIT BELOW THIS LINE
+                        var d = document, s = d.createElement('script');
+                        s.src = '//pomodorotimerlite.disqus.com/embed.js';
+                        s.setAttribute('data-timestamp', +new Date());
+                        (d.head || d.body).appendChild(s);
+                    })();
+                    </script>
+                    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+                </div>
+            </div>
+        </div>
+        <hr class="separator-xs"/>
+        <div class="container">
+            <div class="row text-center spaced-box-sm">
+                <div class="col-md-12">
+                    <div class="text-center">
+                        <a role="button" class="btn btn-default btn-lg" href="#home"><i class="fa fa-lg fa-angle-double-up"></i> Go back to app</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr class="separator-xs"/>
+    </div>
+    <div class="footer footer-section">
+        <div class="container">
+            <div class="text-center spaced-box-sm">
                 <code>Pomodoro Timer Lite - v0.1.9; Built by <a href="https://github.com/navyaganduri" target="_blank">@navyaganduri</a> and <a href="https://github.com/dostiharise" target="_blank">@dostiharise</a>;</code>
             </div>
-            <hr class="separator-xs"/>
         </div>
         <div class="container">
-            <div class="row text-center spaced-box-xs">
+            <hr class="separator-xs"/>
+            <div class="row text-center spaced-box-sm">
                 <div class="col-xs-12">
                     <a class="btn btn-default btn-sm" href="https://github.com/navyaganduri/pomodoro-timer-bootstrap/"
                     title="Fork me on GitHub" role="button" target="_blank"><i class="fa fa-github"></i> Fork me on GitHub</a>
@@ -424,12 +481,11 @@
     <script src="js/pomodoro-timer.js"></script>
 
     <div id="fb-root"></div>
-    <script>
-    (function(d, s, id) {
+    <script>(function(d, s, id) {
         var js, fjs = d.getElementsByTagName(s)[0];
         if (d.getElementById(id)) return;
         js = d.createElement(s); js.id = id;
-        js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.5";
+        js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.5&appId=466790363526750";
         fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));
     </script>

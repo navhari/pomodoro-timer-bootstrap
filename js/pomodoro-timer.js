@@ -13,7 +13,7 @@ var timeElapsed;
 var remainingTime;
 var isRunTimer = false;
 var isSoundEnabled = true;
-var isStopEnabled = false;
+var isStopEnabled = true;
 
 var loopRenderInterval = 1000;
 var nextIntervalAdjust = 20;
@@ -225,6 +225,14 @@ function afterStart() {
 
 }
 
+function afterComplete() {
+
+    $('#restartButton').removeClass('hidden');
+    $('#startButton').addClass('hidden');
+    $('#stopButton').addClass('hidden');
+
+}
+
 
 function playAlarm(){
   if(isSoundEnabled) {
@@ -238,8 +246,8 @@ function startTimer() {
 
     beginTime = Date.now();
 
-      // give 1 second delay
-    beginTime+= (1 * 1000);
+    // give 400 ms delay
+    beginTime+= (400);
 
     isRunTimer = true;
     afterStart();
@@ -251,7 +259,12 @@ function stopTimer() {
     timerDuration = remainingTime;
 
     isRunTimer = false;
-    afterStop();
+
+    if(remainingTime < 1000) {
+        afterComplete();
+    } else {
+        afterStop();
+    }
   }
 }
 
@@ -264,6 +277,7 @@ function resetTimer(forceAnimate){
   remainingTime = timerDuration;
 
   displayTimer(forceAnimate);
+  afterStop();
 }
 
 function formatTime(intergerValue) {

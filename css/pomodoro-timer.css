@@ -94,6 +94,9 @@ body.apply-fonts {
   background: #3F51B5;
 }
 
+.footer-section {
+}
+
 @media screen and (max-width: 352px) {
   .hidden-xtreme {
     display: none !important;
