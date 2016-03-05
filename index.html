@@ -62,8 +62,10 @@
         m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
     })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-    ga('create', 'UA-72598777-1', 'auto');
-    ga('send', 'pageview');
+    ga('create', 'UA-72598777-1', 'auto', 'ptlTracker');
+    ga('ptlTracker.require', 'displayfeatures');
+    ga('ptlTracker.require', 'linkid');
+    ga('ptlTracker.send', 'pageview');
     </script>
 </head>
 <body class="apply-fonts" data-spy="scroll" data-target="#pt-navbar-collapse">
@@ -77,17 +79,22 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span></button>
-                    <a class="navbar-brand" href="#home">
+                    <a id="navbar-link-home" class="navbar-brand pt-track-event" href="#home"
+                        data-event-category="link-click" data-event-action="click" data-event-label="#home">
                         <img class="brand-icon hidden" alt="Pomodoro Timer Lite Icon" src="images/pt-icon-sd.png">
                         <span class="brand-name">Pomodoro Timer Lite</span>
                     </a>
                 </div>
                 <div id="pt-navbar-collapse" class="collapse navbar-collapse">
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="#about"><i class="fa fa-map-o hidden"></i> About</a></li>
-                        <li><a href="#features"><i class="fa fa-list-ul hidden"></i> Features</a></li>
-                        <li><a href="#mentions"><i class="fa fa-comments hidden"></i> Mentions</a></li>
-                        <li><a href="#blog" class="hidden">Blog</a></li>
+                        <li><a id="navbar-link-about" href="#about" class="pt-track-event"
+                            data-event-category="link-click" data-event-action="click" data-event-label="#about"><i class="fa fa-map-o hidden"></i> About</a></li>
+                        <li><a id="navbar-link-features" href="#features" class="pt-track-event"
+                            data-event-category="link-click" data-event-action="click" data-event-label="#features"><i class="fa fa-list-ul hidden"></i> Features</a></li>
+                        <li><a id="navbar-link-mentions" href="#mentions" class="pt-track-event"
+                            data-event-category="link-click" data-event-action="click" data-event-label="#mentions"><i class="fa fa-comments hidden"></i> Mentions</a></li>
+                        <li><a id="navbar-link-blog" href="#blog" class="hidden pt-track-event"
+                            data-event-category="link-click" data-event-action="click" data-event-label="#blog">Blog</a></li>
                     </ul>
                 </div>
             </div>
@@ -101,41 +108,54 @@
                         <div class="panel-heading">
                             <div class="text-center">
                                 <div id="pomodoroButtonGroup" class="btn-group">
-                                    <a id="pomodoroButton" class="btn btn-default btn-success listen-guestures"
+                                    <a id="pomodoroButton" class="btn btn-default btn-success listen-guestures pt-track-event"
+                                    title="Begin Task"
+                                    data-event-category="button-click" data-event-action="click" data-event-label="Begin Task"
                                     role="button" onclick="onPomodoroTimer()">
                                     <span class="default-task-label"><i class="fa fa-rocket"></i> <span class="hidden-xtreme">Begin </span>Task</span></a>
-                                    <a id="pomodoroButtonDropdown" class="btn btn-default btn-success dropdown-toggle listen-guestures"
+                                    <a id="pomodoroButtonDropdown" class="btn btn-default btn-success dropdown-toggle listen-guestures pt-track-event"
+                                    title="Alternate tasks dropdown"
+                                    data-event-category="button-click" data-event-action="click" data-event-label="Begin tasks dropdown"
                                     role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     <span class="caret"></span></a>
                                     <ul class="dropdown-menu">
                                         <li id="minute25DropdownItem">
-                                            <a id="minutes25" href="#" onclick="onPomodoroTimer(false)">25 minutes - Default Task</a>
+                                            <a id="minutes25" href="#" onclick="onPomodoroTimer(false)" class="pt-track-event" title="25 minutes - Default Task"
+                                            data-event-category="button-click" data-event-action="click" data-event-label="25 minutes - Default Task">25 minutes - Default Task</a>
                                         </li>
                                         <li id="minute55DropdownItem">
-                                            <a id="minutes55" href="#" onclick="onPomodoroTimer(true)">55 minutes - Extended Task</a>
+                                            <a id="minutes55" href="#" onclick="onPomodoroTimer(true)" class="pt-track-event" title="55 minutes - Extended Task"
+                                            data-event-category="button-click" data-event-action="click" data-event-label="55 minutes - Extended Task">55 minutes - Extended Task</a>
                                         </li>
                                     </ul>
                                 </div>
                                 <span class="hidden-xs">
-                                    <a id="shortButton" class="btn btn-default listen-guestures" role="button"
+                                    <a id="shortButton" role="button" class="btn btn-default listen-guestures pt-track-event" title="Short Break"
+                                    data-event-category="button-click" data-event-action="click" data-event-label="Short Break"
                                     onclick="onShortTimer()"><i class="fa fa-headphones"></i> Short Break</a>
-                                    <a id="longButton" class="btn btn-default listen-guestures" role="button"
+                                    <a id="longButton" role="button" class="btn btn-default listen-guestures pt-track-event"
+                                    data-event-category="button-click" data-event-action="click" data-event-label="Long Break"
                                     onclick="onLongTimer()"><i class="fa fa-headphones"></i> Long Break</a>
                                 </span>
                                 <div class="btn-group visible-xs-inline-block">
-                                    <a id="breakButton" class="btn btn-default listen-guestures"
+                                    <a id="breakButton" class="btn btn-default listen-guestures pt-track-event" title="Take Break"
+                                    data-event-category="button-click" data-event-action="click" data-event-label="Take Break"
                                     role="button" onclick="onShortTimer()">
                                     <span class="default-break-label"><i class="fa fa-headphones"></i> <span class="hidden-xtreme">Take </span>Break</span></a>
-                                    <a id="breakButtonDropdown" class="btn btn-default dropdown-toggle listen-guestures"
+                                    <a id="breakButtonDropdown" class="btn btn-default dropdown-toggle listen-guestures pt-track-event"
+                                    title="Alternate breaks dropdown"
+                                    data-event-category="button-click" data-event-action="click" data-event-label="Take break dropdown"
                                     role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     <span class="caret"></span></a>
                                     <ul class="dropdown-menu dropdown-menu-right">
                                         <li id="shortButtonDropdownItem">
-                                            <a id="shortButtonResponsive" href="#"
+                                            <a id="shortButtonResponsive" href="#" class="pt-track-event" title="05 minutes - Short Break"
+                                            data-event-category="button-click" data-event-action="click" data-event-label="05 minutes - Short Break"
                                             onclick="onShortTimer()">05 minutes - Short Break</a>
                                         </li>
                                         <li id="longButtonDropdownItem">
-                                            <a id="longButtonResponsive" href="#"
+                                            <a id="longButtonResponsive" href="#" class="pt-track-event" title="15 minutes - Long Break"
+                                            data-event-category="button-click" data-event-action="click" data-event-label="15 minutes - Long Break"
                                             onclick="onLongTimer()">15 minutes - Long Break</a>
                                         </li>
                                     </ul>
@@ -153,7 +173,8 @@
                                     </div>
                                 </div>
                                 <div class="timer-bell-container pull-right col-xs-2 text-right">
-                                    <button id="alarmButton" class="btn btn-link btn-xs btn-square-xs listen-guestures"
+                                    <button id="alarmButton" class="btn btn-link btn-xs btn-square-xs listen-guestures pt-track-event"
+                                    data-event-category="button-click" data-event-action="click" data-event-label="Alarm Toggle Button"
                                     role="button" onclick="onSoundToggle()">
                                     <i class="fa fa-bell"></i></button>
                                 </div>
@@ -161,13 +182,19 @@
                         </div>
                         <div class="panel-footer">
                             <div class="text-center">
-                                <a id="restartButton" class="btn btn-warning btn-wide listen-guestures hidden" role="button"
+                                <a id="restartButton" class="btn btn-warning btn-wide listen-guestures hidden pt-track-event" title="Reset timer"
+                                data-event-category="button-click" data-event-action="click" data-event-label="Reset Timer"
+                                role="button"
                                 onclick="onResetTimer()" disabled="disabled">
                                 <i class="fa fa-undo"></i> Reset</a>
-                                <a id="startButton" class="btn btn-primary btn-wide listen-guestures" role="button"
+                                <a id="startButton" class="btn btn-primary btn-wide listen-guestures pt-track-event" title="Start timer"
+                                data-event-category="button-click" data-event-action="click" data-event-label="Start Timer"
+                                role="button"
                                 onclick="onStartTimer()" disabled="disabled">
                                 <i class="fa fa-play"></i> Start</a>
-                                <a id="stopButton" class="btn btn-danger btn-wide listen-guestures hidden" role="button"
+                                <a id="stopButton" class="btn btn-danger btn-wide listen-guestures hidden pt-track-event" title="Pause timer"
+                                data-event-category="button-click" data-event-action="click" data-event-label="Pause timer"
+                                role="button"
                                 onclick="onStopTimer()" disabled="disabled">
                                 <i class="fa fa-pause"></i> Pause</a>
                             </div>
@@ -200,20 +227,35 @@
         <div class="container">
             <div class="row text-center spaced-box-sm">
                 <div class="col-xs-12">
-                    <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fnavyaganduri.github.io%2Fpomodoro-timer-bootstrap%2Findex.html"
-                    title="Share on Facebook" target="_blank" class="btn btn-facebook btn-social btn-sm"><i class="fa fa-facebook fa-lg"></i>
+                    <a id="social-link-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fnavyaganduri.github.io%2Fpomodoro-timer-bootstrap%2Findex.html"
+                    title="Share on Facebook" target="_blank" class="btn btn-facebook btn-social btn-sm pt-track-event pt-track-social"
+                    data-social-network="Facebook" data-social-action="Share" data-social-target="https://navyaganduri.github.io/pomodoro-timer-bootstrap/"
+                    data-event-category="link-click" data-event-action="click" data-event-label="Share on Facebook"
+                    ><i class="fa fa-facebook fa-lg"></i>
                     <span class="hidden-xs btn-social-text"> Facebook</span></a>
-                    <a href="http://twitter.com/home?status=Pomodoro%20Timer%20Lite%20%20-%20Simple%20and%20clean%20productivity%20tool%20to%20stay%20focused%20(http%3A%2F%2Fnavyaganduri.github.io%2Fpomodoro-timer-bootstrap%2Findex.html)"
-                    title="Share on Twitter" target="_blank" class="btn btn-twitter btn-social btn-sm"><i class="fa fa-twitter fa-lg"></i>
+                    <a id="social-link-twitter" href="http://twitter.com/home?status=Pomodoro%20Timer%20Lite%20%20-%20Simple%20and%20clean%20productivity%20tool%20to%20stay%20focused%20(http%3A%2F%2Fnavyaganduri.github.io%2Fpomodoro-timer-bootstrap%2Findex.html)"
+                    title="Share on Twitter" target="_blank" class="btn btn-twitter btn-social btn-sm pt-track-event pt-track-social"
+                    data-social-network="Twitter" data-social-action="Share" data-social-target="https://navyaganduri.github.io/pomodoro-timer-bootstrap/"
+                    data-event-category="link-click" data-event-action="click" data-event-label="Share on Twitter"
+                    ><i class="fa fa-twitter fa-lg"></i>
                     <span class="hidden-xs btn-social-text"> Twitter</span></a>
-                    <a href="https://plus.google.com/share?url=http%3A%2F%2Fnavyaganduri.github.io%2Fpomodoro-timer-bootstrap%2Findex.html"
-                    title="Share on Google+" target="_blank" class="btn btn-googleplus btn-social btn-sm"><i class="fa fa-google-plus fa-lg"></i>
+                    <a id="social-link-google-plus" href="https://plus.google.com/share?url=http%3A%2F%2Fnavyaganduri.github.io%2Fpomodoro-timer-bootstrap%2Findex.html"
+                    title="Share on Google+" target="_blank" class="btn btn-googleplus btn-social btn-sm pt-track-event pt-track-social"
+                    data-social-network="Google+" data-social-action="Share" data-social-target="https://navyaganduri.github.io/pomodoro-timer-bootstrap/"
+                    data-event-category="link-click" data-event-action="click" data-event-label="Share on Google+"
+                    ><i class="fa fa-google-plus fa-lg"></i>
                     <span class="hidden-xs btn-social-text"> Google+</span></a>
-                    <a href="http://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Fnavyaganduri.github.io%2Fpomodoro-timer-bootstrap%2Findex.html&title=Pomodoro%20Timer%20Lite%20%20-%20Simple%20and%20clean%20productivity%20tool%20to%20stay%20focused"
-                    title="Share on LinkedIn" target="_blank" class="btn btn-linkedin btn-social btn-sm"><i class="fa fa-linkedin fa-lg"></i>
+                    <a id="social-link-linkedin" href="http://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Fnavyaganduri.github.io%2Fpomodoro-timer-bootstrap%2Findex.html&title=Pomodoro%20Timer%20Lite%20%20-%20Simple%20and%20clean%20productivity%20tool%20to%20stay%20focused"
+                    title="Share on LinkedIn" target="_blank" class="btn btn-linkedin btn-social btn-sm pt-track-event pt-track-social"
+                    data-social-network="LinkedIn" data-social-action="Share" data-social-target="https://navyaganduri.github.io/pomodoro-timer-bootstrap/"
+                    data-event-category="link-click" data-event-action="click" data-event-label="Share on LinkedIn"
+                    ><i class="fa fa-linkedin fa-lg"></i>
                     <span class="hidden-xs btn-social-text"> LinkedIn</span></a>
-                    <a href="http://www.reddit.com/submit?url=http%3A%2F%2Fnavyaganduri.github.io%2Fpomodoro-timer-bootstrap%2Findex.html&title=Pomodoro%20Timer%20Lite%20%20-%20Simple%20and%20clean%20productivity%20tool%20to%20stay%20focused"
-                    title="Share on Reddit" target="_blank" class="btn btn-reddit btn-social btn-sm"><i class="fa fa-reddit fa-lg"></i>
+                    <a id="social-link-reddit" href="http://www.reddit.com/submit?url=http%3A%2F%2Fnavyaganduri.github.io%2Fpomodoro-timer-bootstrap%2Findex.html&title=Pomodoro%20Timer%20Lite%20%20-%20Simple%20and%20clean%20productivity%20tool%20to%20stay%20focused"
+                    title="Share on Reddit" target="_blank" class="btn btn-reddit btn-social btn-sm pt-track-event pt-track-social"
+                    data-social-network="Reddit" data-social-action="Share" data-social-target="https://navyaganduri.github.io/pomodoro-timer-bootstrap/"
+                    data-event-category="link-click" data-event-action="click" data-event-label="Share on Reddit"
+                    ><i class="fa fa-reddit fa-lg"></i>
                     <span class="hidden-xs btn-social-text"> Reddit</span></a>
                 </div>
             </div>
@@ -222,7 +264,10 @@
             <hr class="separator-xs"/>
             <div class="row text-center spaced-box-sm">
                 <div class="col-xs-12">
-                    <a role="button" class="btn btn-default btn-lg" href="#comments"><i class="fa fa-lg fa-comment-o"></i> Leave a Comment</a>
+                    <a id="section-link-goto-comments" role="button" class="btn btn-default btn-lg pt-track-event"
+                    title="Leave a Comment"
+                    data-event-category="link-click" data-event-action="click" data-event-label="Leave a Comment - #home"
+                    href="#comments"><i class="fa fa-lg fa-comment-o"></i> Leave a Comment</a>
                 </div>
             </div>
         </div>
@@ -230,7 +275,10 @@
     <div id="about" class="page-section page-section-light about-section">
         <div class="container">
             <div class="pull-right">
-                <a href="#home" class="btn btn-goto" role="button"><i class="fa fa-angle-double-up"></i> Go back to app</a>
+                <a id="section-link-about-goto-app" href="#home" class="btn btn-goto pt-track-event"
+                title="Go back to app"
+                data-event-category="link-click" data-event-action="click" data-event-label="Go back to app - #about"
+                role="button"><i class="fa fa-angle-double-up"></i> Go back to app</a>
             </div>
             <div class="page-header">
                 <h2><i class="fa fa-map-o"></i> About</h2>
@@ -261,7 +309,10 @@
     <div id="features" class="page-section page-section-light features-section">
         <div class="container">
             <div class="pull-right">
-                <a href="#home" class="btn btn-goto" role="button"><i class="fa fa-angle-double-up"></i> Go back to app</a>
+                <a id="section-link-features-goto-app" href="#home" class="btn btn-goto pt-track-event"
+                title="Go back to app"
+                data-event-category="link-click" data-event-action="click" data-event-label="Go back to app - #features"
+                role="button"><i class="fa fa-angle-double-up"></i> Go back to app</a>
             </div>
             <div class="page-header">
                 <h2><i class="fa fa-list-ul"></i> Features</h2>
@@ -355,7 +406,10 @@
     <div id="mentions" class="page-section page-section-light mentions-section">
         <div class="container">
             <div class="pull-right">
-                <a href="#home" class="btn btn-goto" role="button"><i class="fa fa-angle-double-up"></i> Go back to app</a>
+                <a id="section-link-mentions-goto-app" href="#home" class="btn btn-goto pt-track-event"
+                title="Go back to app"
+                data-event-category="link-click" data-event-action="click" data-event-label="Go back to app - #mentions"
+                role="button"><i class="fa fa-angle-double-up"></i> Go back to app</a>
             </div>
             <div class="page-header">
                 <h2><i class="fa fa-comments"></i> Mentions</h2>
@@ -369,7 +423,10 @@
                           </div>
                           <div class="media-body">
                             <div class="media-heading"><h4>Built with Bootstrap</h4></div>
-                            <a target="_blank" href="http://builtwithbootstrap.com/post/139370473490/pomodoro-timer-lite-a-simple-and-clean-online">Pomodoro Timer Lite listed on Built with Bootstrap <i class="fa fa-fw fa-external-link"></i></a>
+                            <a id="mentions-link-built-with-bootstrap" class="pt-track-event"
+                            title="Pomodoro Timer Lite on Built with Bootstrap"
+                            data-event-category="link-click" data-event-action="click" data-event-label="Mentions - Built with Bootstrap"
+                            target="_blank" href="http://builtwithbootstrap.com/post/139370473490/pomodoro-timer-lite-a-simple-and-clean-online">Pomodoro Timer Lite listed on Built with Bootstrap <i class="fa fa-fw fa-external-link"></i></a>
 
                           </div>
                         </li>
@@ -379,7 +436,10 @@
                           </div>
                           <div class="media-body">
                             <div class="media-heading"><h4>Facebook Page</h4></div>
-                            <a target="_blank" href="https://www.facebook.com/pomodoro.timer.lite/">Pomodoro Timer Lite's Facebook Page <i class="fa fa-fw fa-external-link"></i></a>
+                            <a id="mentions-link-facebook-page" class="pt-track-event"
+                            title="Pomodoro Timer Lite's Page on Facebook"
+                            data-event-category="link-click" data-event-action="click" data-event-label="Mentions - Facebook Page"
+                            target="_blank" href="https://www.facebook.com/pomodoro.timer.lite/">Pomodoro Timer Lite's Facebook Page <i class="fa fa-fw fa-external-link"></i></a>
                           </div>
                         </li>
                         <li class="media">
@@ -390,17 +450,26 @@
                             <div class="media-heading"><h4>Reddit Activity</h4></div>
                             <ul>
                                 <li>
-                                    <a target="_blank" href="https://www.reddit.com/r/GetStudying/comments/47iyw0/have_you_tried_the_pomodoro_technique_yet_get/">
+                                    <a id="mentions-link-reddit-getstudying" target="_blank" class="pt-track-event"
+                                    title="Pomodoro Timer Lite on Reddit's '/r/GetStudying' subreddit"
+                                    data-event-category="link-click" data-event-action="click" data-event-label="Mentions - Subreddit /r/GetStudying"
+                                    href="https://www.reddit.com/r/GetStudying/comments/47iyw0/have_you_tried_the_pomodoro_technique_yet_get/">
                                         /r/GetStudying <i class="fa fa-fw fa-external-link"></i>
                                     </a>
                                 </li>
                                 <li>
-                                    <a target="_blank" href="https://www.reddit.com/r/UsefulWebsites/comments/47in54/pomodoro_timer_lite_simple_and_clean_productivity/">
+                                    <a id="mentions-link-reddit-usefulwebsites" target="_blank" class="pt-track-event"
+                                    title="Pomodoro Timer Lite on Reddit's '/r/UsefulWebsites' subreddit"
+                                    data-event-category="link-click" data-event-action="click" data-event-label="Mentions - Subreddit /r/UsefulWebsites "
+                                    href="https://www.reddit.com/r/UsefulWebsites/comments/47in54/pomodoro_timer_lite_simple_and_clean_productivity/">
                                         /r/UsefulWebsites <i class="fa fa-fw fa-external-link"></i>
                                     </a>
                                 </li>
                                 <li>
-                                    <a target="_blank" href="https://www.reddit.com/r/productivity/comments/44hpqk/pomodoro_timer_lite_simple_and_clean_productivity/">
+                                    <a id="mentions-link-reddit-productivity" target="_blank" class="pt-track-event"
+                                    title="Pomodoro Timer Lite on Reddit's '/r/productivity' subreddit"
+                                    data-event-category="link-click" data-event-action="click" data-event-label="Mentions - Subreddit /r/productivity"
+                                    href="https://www.reddit.com/r/productivity/comments/44hpqk/pomodoro_timer_lite_simple_and_clean_productivity/">
                                         /r/productivity <i class="fa fa-fw fa-external-link"></i>
                                     </a>
                                 </li>
@@ -417,7 +486,10 @@
             <div class="row text-center spaced-box-sm">
                 <div class="col-md-12">
                     <div class="pull-right">
-                        <a role="button" class="btn btn-default" href="#home"><i class="fa fa-angle-double-up"></i> Go back to app</a>
+                        <a id="section-link-comments-goto-app" class="btn btn-default pt-track-event"
+                        title="Go back to app"
+                        data-event-category="link-click" data-event-action="click" data-event-label="Go back to app - #comments"
+                        role="button" href="#home"><i class="fa fa-angle-double-up"></i> Go back to app</a>
                     </div>
                 </div>
             </div>
@@ -431,6 +503,14 @@
                         var disqus_config = function () {
                             this.page.url = 'https://navyaganduri.github.io/pomodoro-timer-bootstrap/';
                             this.page.identifier = 'pomodoro-timer-lite-v0';
+                            this.callbacks.onNewComment.push(function(comment) {
+                                ga('ptlTracker.send', event, {
+                                    'eventCategory': 'Disqus',
+                                    'eventAction': 'Comment',
+                                    'eventLabel': comment.id,
+                                    'eventValue': comment.text
+                                }, comment);
+                            });
                         };
                         (function() { // DON'T EDIT BELOW THIS LINE
                         var d = document, s = d.createElement('script');
@@ -448,7 +528,10 @@
             <div class="row text-center spaced-box-sm">
                 <div class="col-md-12">
                     <div class="text-center">
-                        <a role="button" class="btn btn-default btn-lg" href="#home"><i class="fa fa-lg fa-angle-double-up"></i> Go back to app</a>
+                        <a id="section-link-footer-goto-app"  class="btn btn-default btn-lg pt-track-event"
+                        title="Go back to app"
+                        data-event-category="link-click" data-event-action="click" data-event-label="Go back to app - #footer"
+                        role="button" href="#home"><i class="fa fa-lg fa-angle-double-up"></i> Go back to app</a>
                     </div>
                 </div>
             </div>
@@ -458,17 +541,27 @@
     <div class="footer footer-section">
         <div class="container">
             <div class="text-center spaced-box-sm">
-                <code>Pomodoro Timer Lite - v0.1.9; Built by <a href="https://github.com/navyaganduri" target="_blank">@navyaganduri</a> and <a href="https://github.com/dostiharise" target="_blank">@dostiharise</a>;</code>
+                <code>Pomodoro Timer Lite - v0.1.9; Built by <a id="footer-link-navyaganduri" class="pt-track-event"
+                    title="Github profile of @navyaganduri"
+                    data-event-category="link-click" data-event-action="click" data-event-label="@navyaganduri - github"
+                    href="https://github.com/navyaganduri" target="_blank">@navyaganduri</a> and <a id="footer-link-dostiharise" class="pt-track-event"
+                    title="Github profile of @dostiharise"
+                    data-event-category="link-click" data-event-action="click" data-event-label="@dostiharise - github"
+                    href="https://github.com/dostiharise" target="_blank">@dostiharise</a>;</code>
             </div>
         </div>
         <div class="container">
             <hr class="separator-xs"/>
             <div class="row text-center spaced-box-sm">
                 <div class="col-xs-12">
-                    <a class="btn btn-default btn-sm" href="https://github.com/navyaganduri/pomodoro-timer-bootstrap/"
+                    <a id="footer-link-fork-github" class="btn btn-default btn-sm pt-track-event"
+                    data-event-category="link-click" data-event-action="click" data-event-label="Fork me on GitHub"
+                    href="https://github.com/navyaganduri/pomodoro-timer-bootstrap/"
                     title="Fork me on GitHub" role="button" target="_blank"><i class="fa fa-github"></i> Fork me on GitHub</a>
-                    <a class="btn btn-default btn-sm" href="https://github.com/navyaganduri/pomodoro-timer-bootstrap/issues/new"
-                    title="Submit Feedback" role="button" target="_blank"><i class="fa fa-github"></i> Submit Feedback</a>
+                    <a id="footer-link-feedback-github" class="btn btn-default btn-sm pt-track-event"
+                    data-event-category="link-click" data-event-action="click" data-event-label="Submit an Issue"
+                    href="https://github.com/navyaganduri/pomodoro-timer-bootstrap/issues/new"
+                    title="Submit an Issue" role="button" target="_blank"><i class="fa fa-github"></i> Submit an Issue</a>
                 </div>
             </div>
         </div>
@@ -479,6 +572,7 @@
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="libs/bootstrap/js/bootstrap.js"></script>
     <script src="js/pomodoro-timer.js"></script>
+    <script src="js/pomodoro-timer-tracker.js"></script>
 
     <div id="fb-root"></div>
     <script>(function(d, s, id) {
