@@ -150,6 +150,10 @@ body.apply-fonts {
   min-width: 28px;
 }
 
+.dropdown-menu-xs {
+  min-width: 30px !important;
+}
+
 .footer {
   width: 100%;
   margin-top: 16px;
@@ -216,6 +220,18 @@ i.fa.fa-border {
   width: 1.8em;
   height: 1.4em;
   text-align: center;
+}
+
+i.fa-stack-on {
+  color: #3F51B5;
+}
+
+i.fa-stack-on.accent {
+  color: #E91E63;
+}
+
+i.fa-stack-off {
+  color: #E91E63;
 }
 
 p.text-indent-sm {

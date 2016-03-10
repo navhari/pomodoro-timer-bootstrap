@@ -12,7 +12,6 @@ var beginTime;
 var timeElapsed;
 var remainingTime;
 var isRunTimer = false;
-var isSoundEnabled = true;
 var isStopEnabled = true;
 
 var loopRenderInterval = 1000;
@@ -26,9 +25,14 @@ var expectedRenderTime = 0;
 
 var renderHandle;
 
+var isSoundEnabled = true;
 var isGestureAquired = false;
 var audio = new Audio('./sounds/beep.mp3');
 var unmuteAudio = new Audio('./sounds/unmute.mp3');
+
+var isCanNotify = false;
+var isNotifyEnabled = true;
+var currentNotification;
 
 $(document).ready(function() {
 
@@ -69,6 +73,8 @@ function initTimer() {
   $('.listen-guestures').on('click', function() {
     onGuestureFixAudio();
   });
+
+  checkNotify();
 }
 
 // Trick toplay sounds on mobile
@@ -76,8 +82,10 @@ function onGuestureFixAudio() {
   if(!isGestureAquired) {
     audio.play();
     audio.pause();
+    audio.currentTime=0;
     unmuteAudio.play();
     unmuteAudio.pause();
+    unmuteAudio.currentTime=0;
 
     isGestureAquired = true;
   }
@@ -89,22 +97,120 @@ function onSoundToggle() {
     isSoundEnabled = false;
   } else {
     isSoundEnabled = true;
-    unmuteAudio.pause();
-    unmuteAudio.play();
   }
 
   updateSound();
+  playClick();
+}
+
+function playClick() {
+  if(isSoundEnabled) {
+    unmuteAudio.pause();
+    unmuteAudio.currentTime=0;
+    unmuteAudio.play();
+  }
 }
 
 function updateSound() {
   if(isSoundEnabled) {
-    $("#alarmButton").removeClass("is-muted");
-    $("#alarmButton > i").removeClass("fa-bell-slash");
-    $("#alarmButton > i").addClass("fa-bell");
+    $('#alarmButton').removeClass('btn-muted');
+    $('#alarmButton > span > i.toggle-status').addClass('hidden');
   } else {
-    $("#alarmButton > i").removeClass("fa-bell");
-    $("#alarmButton").addClass("is-muted");
-    $("#alarmButton > i").addClass("fa-bell-slash");
+    $('#alarmButton').addClass('btn-muted');
+    $('#alarmButton > span > i.toggle-status').removeClass('hidden');
+  }
+}
+
+function onNotifyToggle() {
+
+  if(!isCanNotify) {
+    requestNotification();
+  } else {
+    if(isNotifyEnabled) {
+      isNotifyEnabled = false;
+    } else {
+      isNotifyEnabled = true;
+      currentNotification = new Notification("Alright! Notifications enabled.", {
+        body: 'We will notify you when time\'s up.',
+        icon: 'images/pt-icon-md.png'
+      });
+    }
+  }
+
+  updateNotify();
+  playClick();
+}
+
+function updateNotify() {
+
+  if(currentNotification) {
+    currentNotification.close();
+  }
+
+  if(isCanNotify) {
+
+    $('#notifyButton > span > i.fa-stack-on').removeClass('accent');
+
+    if(isNotifyEnabled) {
+      $('#notifyButton > span > i.toggle-status').addClass('hidden');
+    } else {
+      $('#notifyButton > span > i.toggle-status').removeClass('hidden');
+    }
+  } else {
+    $('#notifyButton > span > i.toggle-status').addClass('hidden');
+    $('#notifyButton > span > i.fa-stack-on').addClass('accent');
+  }
+}
+
+function checkNotify() {
+
+  if (!('Notification' in window)) {
+    isCanNotify = false;
+    $('#notifyButton > span > i.toggle-status').addClass('hidden');
+    $('#notifyButton > span > i.fa-stack-on').removeClass('accent');
+  } else if (Notification.permission === 'granted') {
+    isCanNotify = true;
+    $('#notifyButton > span > i.toggle-status').addClass('hidden');
+    $('#notifyButton > span > i.fa-stack-on').removeClass('accent');
+  } else {
+    $('#notifyButton > span > i.toggle-status').addClass('hidden');
+    $('#notifyButton > span > i.fa-stack-on').addClass('accent');
+  }
+}
+
+function requestNotification() {
+
+  if (!('Notification' in window)) {
+    isCanNotify = false;
+  } else if (Notification.permission === 'granted') {
+    isCanNotify = true;
+  } else if (Notification.permission !== 'denied') {
+    Notification.requestPermission(function (permission) {
+      if (permission === 'granted') {
+        isCanNotify = true;
+        currentNotification = new Notification("Great! Notifications enabled.", {
+          body: 'Now you won\'t miss any time up notifications.',
+          icon: 'images/pt-icon-md.png'
+        });
+        updateNotify();
+      } else {
+        isCanNotify = false;
+      }
+    });
+  }
+}
+
+function playNotification() {
+
+  if(currentNotification) {
+    currentNotification.close();
+  }
+
+  if(isCanNotify && isNotifyEnabled) {
+    currentNotification = new Notification('Hey, Time\'s up!', {
+      body: 'Your '+formatTime(gMinutes)+':'+formatTime(gSeconds)+' minutes timer has ended.',
+      icon: 'images/pt-icon-md.png'
+    });
   }
 }
 
@@ -237,6 +343,7 @@ function afterComplete() {
 function playAlarm(){
   if(isSoundEnabled) {
     audio.pause();
+    audio.currentTime=0;
     audio.play();
   }
 }
@@ -294,6 +401,8 @@ function decrementTimer(){
 
     stopTimer();
     playAlarm();
+    playNotification();
+
   } else {
     timeElapsed = Date.now() - beginTime;
     remainingTime = timerDuration - timeElapsed;

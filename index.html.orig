@@ -87,16 +87,22 @@
                 </div>
                 <div id="pt-navbar-collapse" class="collapse navbar-collapse">
                     <ul class="nav navbar-nav navbar-right">
+<<<<<<< HEAD
                         <li><a id="navbar-link-about" href="#about" class="pt-track-event"
-                            data-event-category="link-click" data-event-action="click" data-event-label="#about">About</a></li>
+                            data-event-category="link-click" data-event-action="click" data-event-label="#about"><i class="fa fa-map-o hidden"></i> About</a></li>
                         <li><a id="navbar-link-features" href="#features" class="pt-track-event"
-                            data-event-category="link-click" data-event-action="click" data-event-label="#features">Features</a></li>
+                            data-event-category="link-click" data-event-action="click" data-event-label="#features"><i class="fa fa-list-ul hidden"></i> Features</a></li>
                         <li><a id="navbar-link-mentions" href="#mentions" class="pt-track-event"
-                            data-event-category="link-click" data-event-action="click" data-event-label="#mentions">Mentions</a></li>
-                        <li><a id="navbar-link-comments" href="#comments" class="pt-track-event"
-                            data-event-category="link-click" data-event-action="click" data-event-label="#comments">Comments</a></li>
+                            data-event-category="link-click" data-event-action="click" data-event-label="#mentions"><i class="fa fa-comments hidden"></i> Mentions</a></li>
                         <li><a id="navbar-link-blog" href="#blog" class="hidden pt-track-event"
                             data-event-category="link-click" data-event-action="click" data-event-label="#blog">Blog</a></li>
+=======
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#mentions">Mentions</a></li>
+                        <li><a href="#comments">Comments</a></li>
+                        <li><a href="#blog" class="hidden">Blog</a></li>
+>>>>>>> Added support for desktop notifications
                     </ul>
                 </div>
             </div>
@@ -175,17 +181,20 @@
                                     </div>
                                 </div>
                                 <div class="timer-bell-container pull-right col-xs-2 text-right">
+<<<<<<< HEAD
+                                    <button id="alarmButton" class="btn btn-link btn-xs btn-square-xs listen-guestures pt-track-event"
+                                    data-event-category="button-click" data-event-action="click" data-event-label="Alarm Toggle Button"
+                                    role="button" onclick="onSoundToggle()">
+                                    <i class="fa fa-bell"></i></button>
+=======
                                   <div class="btn-group">
-                                    <button id="settingsButton" type="button" class="btn btn-link btn-xs btn-square-xs dropdown-toggle listen-guestures pt-track-event"
-                                      title="Toggle Notifications Settings"
-                                      data-event-category="button-click" data-event-action="click" data-event-label="Toggle Notifications Settings"
+                                    <button type="button" class="btn btn-link btn-xs btn-square-xs dropdown-toggle listen-guestures"
                                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                       <i class="fa fa-cog fa-lg"></i>
                                     </button>
                                     <ul class="dropdown-menu dropdown-menu-right dropdown-menu-xs">
-                                      <li><button id="alarmButton" class="btn btn-default btn-link btn-xs btn-square-xs listen-guestures pt-track-event"
+                                      <li><button id="alarmButton" class="btn btn-default btn-link btn-xs btn-square-xs listen-guestures"
                                             title="Toggle Sound Notifications"
-                                            data-event-category="button-click" data-event-action="click" data-event-label="Toggle Sound Notifications"
                                             role="button" onclick="onSoundToggle()">
                                             <span class="fa-stack fg-lg">
                                                 <i class="fa fa-bell fa-stack-on fa-stack-1x"></i>
@@ -195,9 +204,8 @@
                                       </li>
                                       <li role="separator" class="divider"></li>
                                       <li>
-                                        <button id="notifyButton" class="btn btn-default btn-link btn-xs btn-square-xs listen-guestures pt-track-event"
+                                        <button id="notifyButton" class="btn btn-default btn-link btn-xs btn-square-xs listen-guestures"
                                           title="Toggle Desktop Notifications"
-                                          data-event-category="button-click" data-event-action="click" data-event-label="Toggle Desktop Notifications"
                                           role="button" onclick="onNotifyToggle()">
                                           <span class="fa-stack fg-lg">
                                               <i class="fa fa-envelope fa-stack-on accent fa-stack-1x"></i>
@@ -207,6 +215,7 @@
                                       </li>
                                     </ul>
                                   </div>
+>>>>>>> Added support for desktop notifications
                                 </div>
                             </div>
                         </div>
@@ -588,10 +597,15 @@
                     data-event-category="link-click" data-event-action="click" data-event-label="Fork me on GitHub"
                     href="https://github.com/navyaganduri/pomodoro-timer-bootstrap/"
                     title="Fork me on GitHub" role="button" target="_blank"><i class="fa fa-github"></i> Fork me on GitHub</a>
+<<<<<<< HEAD
                     <a id="footer-link-feedback-github" class="btn btn-default btn-sm pt-track-event"
                     data-event-category="link-click" data-event-action="click" data-event-label="Submit an Issue"
                     href="https://github.com/navyaganduri/pomodoro-timer-bootstrap/issues/new"
                     title="Submit an Issue" role="button" target="_blank"><i class="fa fa-github"></i> Submit an Issue</a>
+=======
+                    <a class="btn btn-default btn-sm" href="https://github.com/navyaganduri/pomodoro-timer-bootstrap/issues/new"
+                    title="Submit an Issue" role="button" target="_blank"><i class="fa fa-github"></i> Submit Feedback</a>
+>>>>>>> Added support for desktop notifications
                 </div>
             </div>
         </div>
