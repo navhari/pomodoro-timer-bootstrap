@@ -130,10 +130,11 @@ function onNotifyToggle() {
       isNotifyEnabled = false;
     } else {
       isNotifyEnabled = true;
-      currentNotification = new Notification("Alright! Notifications enabled.", {
-        body: 'We will notify you when time\'s up.',
-        icon: 'images/pt-icon-md.png'
-      });
+      buildNotification(
+        'Alright! Notifications enabled.',
+        'We will notify you when time\'s up.',
+        'images/pt-icon-md.png'
+      );
     }
   }
 
@@ -188,10 +189,11 @@ function requestNotification() {
     Notification.requestPermission(function (permission) {
       if (permission === 'granted') {
         isCanNotify = true;
-        currentNotification = new Notification("Great! Notifications enabled.", {
-          body: 'Now you won\'t miss any time up notifications.',
-          icon: 'images/pt-icon-md.png'
-        });
+        buildNotification(
+          'Great! Notifications enabled.',
+          'Now you won\'t miss any time up notifications.',
+          'images/pt-icon-md.png'
+        );
         updateNotify();
       } else {
         isCanNotify = false;
@@ -207,11 +209,28 @@ function playNotification() {
   }
 
   if(isCanNotify && isNotifyEnabled) {
-    currentNotification = new Notification('Hey, Time\'s up!', {
-      body: 'Your '+formatTime(gMinutes)+':'+formatTime(gSeconds)+' minutes timer has ended.',
-      icon: 'images/pt-icon-md.png'
-    });
+      buildNotification(
+          'Hey, Time\'s up!',
+          'Your '+formatTime(gMinutes)+':'+formatTime(gSeconds)+' minutes timer has ended.',
+          'images/pt-icon-md.png'
+    );
   }
+}
+
+function buildNotification(title, nBody, nIcon) {
+
+    if(currentNotification) {
+        currentNotification.close();
+    }
+
+    try {
+        currentNotification = new Notification(title, {
+            body: nBody,
+            icon: nIcon
+        });
+    } catch (error) {
+        console.log('Error showing notification. Details: '+error);
+    }
 }
 
 function onPomodoroTimer(isUseLong){
